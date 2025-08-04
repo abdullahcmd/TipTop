@@ -4,7 +4,7 @@ import LiveScreen from './src/screens/LiveStreamScreens/LiveScreen1';
 import LiveStreamScreen from './src/screens/LiveStreamScreens/LiveScreen2';
 
 function App() {
-  return <LiveStreamScreen />;
+  return <Navigation />;
 }
 
 export default App;

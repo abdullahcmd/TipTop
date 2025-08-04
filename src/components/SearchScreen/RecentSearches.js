@@ -6,27 +6,27 @@ const recentUsers = [
   {
     id: '1',
     name: 'Gerard\nFabiano',
-    image: require('../../assets/images/u1.jpg'),
+    image: require('../../assets/images/ProfileImage.png'),
   },
   {
     id: '2',
     name: 'Amber\nJulia',
-    image: require('../../assets/images/u2.jpg'),
+    image: require('../../assets/images/ProfileImage.png'),
   },
   {
     id: '3',
     name: 'Fernando\nAgaro',
-    image: require('../../assets/images/u3.jpg'),
+    image: require('../../assets/images/ProfileImage.png'),
   },
   {
     id: '4',
     name: 'Jane\nSunny',
-    image: require('../../assets/images/u4.jpg'),
+    image: require('../../assets/images/ProfileImage.png'),
   },
   {
     id: '5',
     name: 'Richard\nMoore',
-    image: require('../../assets/images/u5.jpg'),
+    image: require('../../assets/images/ProfileImage.png'),
   },
 ];
 

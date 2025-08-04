@@ -1,19 +1,53 @@
 // components/CustomTabBar.js
 import React from 'react';
-import {
-  View,
-  TouchableOpacity,
-  Image,
-  StyleSheet,
-  Dimensions,
-} from 'react-native';
-import Icon from 'react-native-vector-icons/Feather';
+import { View, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import HomeIcon from '../../assets/svgs/HomeSimple.svg';
+import HomeIconFilled from '../../assets/svgs/Home.svg';
+import SearchIcon from '../../assets/svgs/SearchSimple.svg';
+import SearchIconFilled from '../../assets/svgs/Search.svg';
+import AddBoxIcon from '../../assets/svgs/BoxSimple.svg';
+import AddBoxIconFilled from '../../assets/svgs/Box.svg';
+import LiveIcon from '../../assets/svgs/LiveStreamSimple.svg';
+import LiveIconFilled from '../../assets/svgs/LiveStream.svg';
 import ProfileImage from '../../assets/svgs/ProfileImage.svg';
+import Icon from 'react-native-vector-icons/Feather';
 const { width } = Dimensions.get('window');
 
 const CustomTabBar = ({ state, descriptors, navigation }) => {
   const insets = useSafeAreaInsets();
+  const getIcon = (name, isFocused) => {
+    const size = 26; // Uniform size for both versions
+
+    switch (name) {
+      case 'Home':
+        return isFocused ? (
+          <HomeIconFilled width={size} height={size} />
+        ) : (
+          <HomeIcon width={size} height={size} />
+        );
+      case 'Search':
+        return isFocused ? (
+          <SearchIconFilled width={size} height={size} />
+        ) : (
+          <SearchIcon width={size} height={size} />
+        );
+      case 'LiveStream':
+        return isFocused ? (
+          <LiveIconFilled width={size} height={size} />
+        ) : (
+          <LiveIcon width={size} height={size} />
+        );
+      case 'AddBox':
+        return isFocused ? (
+          <AddBoxIconFilled width={size} height={size} />
+        ) : (
+          <AddBoxIcon width={size} height={size} />
+        );
+      default:
+        return null;
+    }
+  };
 
   return (
     <View
@@ -39,7 +73,7 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
           }
         };
 
-        // Special button in center
+        // Special Add button in center
         if (route.name === 'Add') {
           return (
             <TouchableOpacity
@@ -48,7 +82,8 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
               style={styles.addButton}
             >
               <View style={styles.plusCircle}>
-                <Icon name="plus" size={32} color="#fff" />
+                {/* You can replace this with a custom AddIcon if needed */}
+                <Icon size={25} color={'white'} name="plus" />
               </View>
             </TouchableOpacity>
           );
@@ -66,17 +101,7 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
             ) : (
               <View style={styles.iconWrapper}>
                 {isFocused && <View style={styles.underline} />}
-                <Icon
-                  name={
-                    route.name === 'Home'
-                      ? 'home'
-                      : route.name === 'Search'
-                      ? 'search'
-                      : 'box'
-                  }
-                  size={27}
-                  color={isFocused ? '#C86CFA' : '#fff'}
-                />
+                {getIcon(route.name, isFocused)}
               </View>
             )}
           </TouchableOpacity>
@@ -85,14 +110,15 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
     </View>
   );
 };
-
+export default CustomTabBar;
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     backgroundColor: '#000',
-
     paddingTop: 10,
     paddingHorizontal: 20,
+    alignSelf: 'center',
+    width: '100%',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
@@ -104,30 +130,23 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   underline: {
-    height: 2,
+    height: 3,
     backgroundColor: '#C86CFA',
     width: 30,
-    borderRadius: 2,
+    borderBottomLeftRadius: 4,
+    borderBottomRightRadius: 4,
     marginBottom: 7,
   },
   addButton: {
-    //top: -24,
     justifyContent: 'center',
     alignItems: 'center',
   },
   plusCircle: {
-    width: 60,
-    height: 60,
+    width: 45,
+    height: 45,
     backgroundColor: '#C86CFA',
     borderRadius: 30,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  profilePic: {
-    width: 26,
-    height: 26,
-    borderRadius: 13,
-  },
 });
-
-export default CustomTabBar;
