@@ -1,4 +1,3 @@
-// components/CustomTabBar.js
 import React from 'react';
 import { View, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -12,13 +11,17 @@ import LiveIcon from '../../assets/svgs/LiveStreamSimple.svg';
 import LiveIconFilled from '../../assets/svgs/LiveStream.svg';
 import ProfileImage from '../../assets/svgs/ProfileImage.svg';
 import Icon from 'react-native-vector-icons/Feather';
-const { width } = Dimensions.get('window');
+
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 const CustomTabBar = ({ state, descriptors, navigation }) => {
   const insets = useSafeAreaInsets();
-  const getIcon = (name, isFocused) => {
-    const size = 26; // Uniform size for both versions
 
+  const getIcon = (name, isFocused) => {
+    const size = wp('6.5%');
     switch (name) {
       case 'Home':
         return isFocused ? (
@@ -54,7 +57,7 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
       style={[
         styles.container,
         {
-          paddingBottom: insets.bottom > 0 ? insets.bottom : 10,
+          paddingBottom: insets.bottom > 0 ? insets.bottom : hp('1.5%'),
         },
       ]}
     >
@@ -73,7 +76,7 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
           }
         };
 
-        // Special Add button in center
+        // Center "Add" Button
         if (route.name === 'Add') {
           return (
             <TouchableOpacity
@@ -82,8 +85,7 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
               style={styles.addButton}
             >
               <View style={styles.plusCircle}>
-                {/* You can replace this with a custom AddIcon if needed */}
-                <Icon size={25} color={'white'} name="plus" />
+                <Icon size={wp('5.5%')} color={'white'} name="plus" />
               </View>
             </TouchableOpacity>
           );
@@ -97,7 +99,7 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
             style={styles.tab}
           >
             {route.name === 'Profile' ? (
-              <ProfileImage />
+              <ProfileImage width={wp('7%')} height={wp('7%')} />
             ) : (
               <View style={styles.iconWrapper}>
                 {isFocused && <View style={styles.underline} />}
@@ -110,13 +112,15 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
     </View>
   );
 };
+
 export default CustomTabBar;
+
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     backgroundColor: '#000',
-    paddingTop: 10,
-    paddingHorizontal: 20,
+    paddingTop: hp('1.2%'),
+    paddingHorizontal: wp('5%'),
     alignSelf: 'center',
     width: '100%',
     justifyContent: 'space-between',
@@ -130,20 +134,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   underline: {
-    height: 3,
+    height: hp('0.4%'),
     backgroundColor: '#C86CFA',
-    width: 30,
+    width: wp('8%'),
     borderBottomLeftRadius: 4,
     borderBottomRightRadius: 4,
-    marginBottom: 7,
+    marginBottom: hp('0.7%'),
   },
   addButton: {
     justifyContent: 'center',
     alignItems: 'center',
   },
   plusCircle: {
-    width: 45,
-    height: 45,
+    width: wp('12%'),
+    height: wp('12%'),
     backgroundColor: '#C86CFA',
     borderRadius: 30,
     justifyContent: 'center',

@@ -10,9 +10,10 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
-import PrimaryColors from '../../../constants/colors';
+import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
+import PrimaryColors from '../../constants/colors';
 import RoundButton from './ReusableCentreIconButton';
-import HeartIcon from '../../../assets/svgs/HeartIcon.svg';
+import HeartIcon from '../../assets/svgs/HeartIcon.svg';
 
 const LiveCommentsSection = ({
   comments = [],
@@ -62,7 +63,7 @@ const LiveCommentsSection = ({
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      keyboardVerticalOffset={Platform.OS === 'ios' ? 10 : 0}
+      keyboardVerticalOffset={Platform.OS === 'ios' ? wp('2.5%') : 0}
       style={styles.avoider}
     >
       <View style={styles.container}>
@@ -103,72 +104,74 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   container: {
-    padding: 12,
+    padding: wp('3%'),
     width: '100%',
   },
   comment: {
     flexDirection: 'row',
-    marginBottom: 12,
+    marginBottom: wp('3%'),
   },
   avatar: {
-    width: 28,
-    height: 28,
-    borderRadius: 14,
-    marginRight: 10,
+    width: wp('7%'),
+    height: wp('7%'),
+    borderRadius: wp('3.5%'),
+    marginRight: wp('2.5%'),
   },
   username: {
     color: '#7dd3fc',
     fontWeight: '600',
-    fontSize: 14,
+    fontSize: wp('3.5%'),
   },
   message: {
     color: '#fff',
-    fontSize: 13,
+    fontSize: wp('3.2%'),
   },
   actions: {
     flexDirection: 'row',
-    marginTop: 6,
-    gap: 10,
+    marginTop: wp('1.5%'),
+    gap: wp('2.5%'),
   },
   reject: {
     backgroundColor: '#4444',
-    paddingHorizontal: 12,
-    paddingVertical: 4,
+    paddingHorizontal: wp('3.5%'),
+    paddingVertical: wp('1.2%'),
     borderRadius: 8,
   },
   rejectText: {
     color: '#fff',
+    fontSize: wp('3.3%'),
   },
   accept: {
     backgroundColor: '#fff',
-    paddingHorizontal: 12,
-    paddingVertical: 4,
+    paddingHorizontal: wp('3.5%'),
+    paddingVertical: wp('1.2%'),
     borderRadius: 8,
   },
   acceptText: {
     color: '#9333ea',
     fontWeight: '600',
+    fontSize: wp('3.3%'),
   },
   inputRow: {
-    marginTop: 10,
+    marginTop: wp('2.5%'),
     flexDirection: 'row',
     alignItems: 'center',
     alignSelf: 'center',
-    gap: 10,
-    paddingHorizontal: 16,
-    paddingVertical: 8,
+    gap: wp('2.5%'),
+    paddingHorizontal: wp('4%'),
+    paddingVertical: wp('2%'),
   },
   inputBar: {
     backgroundColor: PrimaryColors.White50percent_Opacity,
-    borderRadius: 30,
+    borderRadius: 30, // DO NOT CHANGE
     width: '90%',
     alignSelf: 'center',
-    paddingHorizontal: 16,
-    paddingVertical: 10,
+    paddingHorizontal: wp('4%'),
+    paddingVertical: wp('2.5%'),
   },
   input: {
     flex: 1,
     color: '#fff',
-    fontSize: 16,
+    fontSize: wp('4%'),
   },
 });

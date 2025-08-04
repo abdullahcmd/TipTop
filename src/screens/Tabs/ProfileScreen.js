@@ -11,12 +11,4 @@ const ProfileScreen = () => {
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff', // recommended so gallery doesn't look transparent
-  },
-});
-
 export default ProfileScreen;

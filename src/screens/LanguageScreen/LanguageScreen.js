@@ -4,14 +4,18 @@ import {
   StyleSheet,
   StatusBar,
   View,
-  Text,
   SafeAreaView,
+  Platform,
 } from 'react-native';
 import LanguageOption from '../../components/LanguageSelection/Language_Bar';
 import LinearGradient from 'react-native-linear-gradient';
 import ContinueButton from '../../components/button/button1';
 import SelectLanguage from '../../assets/svgs/SelectLanguage.svg';
 import { useNavigation } from '@react-navigation/native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 const languages = [
   { native: 'عربي', english: 'Arabic' },
@@ -27,6 +31,7 @@ const languages = [
 const LanguageSelectionScreen = () => {
   const [selectedIndex, setSelectedIndex] = useState(null);
   const navigation = useNavigation();
+
   const handleContinue = () => {
     navigation.navigate('Onboarding');
   };
@@ -45,15 +50,12 @@ const LanguageSelectionScreen = () => {
       />
 
       <SafeAreaView style={styles.safeArea}>
-        {/* Fixed Top Header */}
-
         <SelectLanguage
           style={{ alignSelf: 'center' }}
-          width={300}
-          height={100}
+          width={wp('70%')}
+          height={hp('12%')}
         />
 
-        {/* Scrollable Language List */}
         <ScrollView contentContainerStyle={styles.scrollContent}>
           {languages.map((lang, index) => (
             <LanguageOption
@@ -65,7 +67,8 @@ const LanguageSelectionScreen = () => {
             />
           ))}
         </ScrollView>
-        <View style={{ marginHorizontal: 20 }}>
+
+        <View style={styles.buttonWrapper}>
           <ContinueButton onPress={handleContinue} />
         </View>
       </SafeAreaView>
@@ -73,42 +76,20 @@ const LanguageSelectionScreen = () => {
   );
 };
 
+export default LanguageSelectionScreen;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: Platform.OS === 'android' ? hp('5%') : 0,
   },
   safeArea: {
     flex: 1,
   },
-  svgWrapper: {
-    alignItems: 'center',
-    marginTop: 24,
-    marginBottom: 16,
-  },
-  svgBackground: {
-    backgroundColor: 'rgba(255,255,255,0.1)',
-    padding: 14,
-    borderRadius: 16,
-    marginBottom: 12,
-  },
-  headerText: {
-    alignItems: 'center',
-  },
-  selectText: {
-    fontSize: 24,
-    fontWeight: '900',
-    color: '#fff',
-    letterSpacing: 1,
-  },
-  languageText: {
-    fontSize: 24,
-    fontWeight: '700',
-    color: 'rgba(255, 255, 255, 0.7)',
-    letterSpacing: 1,
-  },
   scrollContent: {
-    paddingBottom: 40,
+    paddingBottom: hp('5%'),
+  },
+  buttonWrapper: {
+    marginHorizontal: wp('5%'),
   },
 });
-
-export default LanguageSelectionScreen;

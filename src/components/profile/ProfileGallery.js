@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 import MasonryList from 'react-native-masonry-list';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 const images = [
   {
@@ -62,32 +67,35 @@ const ProfileGallery = () => {
     <View style={styles.container}>
       {/* Tab Header */}
       <View style={styles.tabRow}>
-        <TouchableOpacity
-          style={[styles.tab, activeTab === 'Photos' && styles.activeTab]}
-          onPress={() => setActiveTab('Photos')}
-        >
-          <Text
-            style={[
-              styles.tabText,
-              activeTab === 'Photos' && styles.activeTabText,
-            ]}
-          >
-            Photos
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.tab, activeTab === 'Posts' && styles.activeTab]}
-          onPress={() => setActiveTab('Posts')}
-        >
-          <Text
-            style={[
-              styles.tabText,
-              activeTab === 'Posts' && styles.activeTabText,
-            ]}
-          >
-            Posts
-          </Text>
-        </TouchableOpacity>
+        {['Photos', 'Posts'].map(tab => {
+          const isActive = activeTab === tab;
+
+          return (
+            <TouchableOpacity
+              key={tab}
+              style={styles.tab}
+              onPress={() => setActiveTab(tab)}
+              activeOpacity={0.9}
+            >
+              <View style={styles.tabInner}>
+                {isActive ? (
+                  <LinearGradient
+                    colors={['#d946ef', '#9333ea']}
+                    style={styles.activeTabGradient}
+                  >
+                    <Text style={[styles.tabText, styles.activeTabText]}>
+                      {tab}
+                    </Text>
+                  </LinearGradient>
+                ) : (
+                  <View style={styles.inactiveTabBackground}>
+                    <Text style={styles.tabText}>{tab}</Text>
+                  </View>
+                )}
+              </View>
+            </TouchableOpacity>
+          );
+        })}
       </View>
 
       {/* Masonry Grid */}
@@ -95,9 +103,8 @@ const ProfileGallery = () => {
         <MasonryList
           images={images}
           columns={3}
-          spacing={3}
+          spacing={wp('1%')}
           imageContainerStyle={styles.image}
-          completeCustomComponent={null}
         />
       ) : (
         <View style={styles.placeholder}>
@@ -112,48 +119,57 @@ export default ProfileGallery;
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 16,
+    paddingHorizontal: wp('4%'),
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
-    marginTop: -40,
+    marginTop: -hp('5%'),
     backgroundColor: '#fff',
     flex: 1,
-    paddingTop: 16,
+    paddingTop: hp('2%'),
   },
   tabRow: {
     flexDirection: 'row',
     backgroundColor: '#f1f1f1',
     borderRadius: 16,
     overflow: 'hidden',
-    marginBottom: 12,
+    marginBottom: hp('1.5%'),
   },
   tab: {
     flex: 1,
-    paddingVertical: 12,
-    alignItems: 'center',
+    height: hp('5.5%'),
   },
-  activeTab: {
-    backgroundColor: '#9333ea',
+  tabInner: {
+    flex: 1,
+  },
+  activeTabGradient: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 16,
+  },
+  inactiveTabBackground: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   tabText: {
-    fontSize: 14,
-    fontWeight: '500',
+    fontSize: wp('3.5%'),
     color: '#444',
   },
   activeTabText: {
     color: '#fff',
-    fontWeight: '700',
+    fontWeight: '600',
   },
   image: {
     borderRadius: 12,
   },
   placeholder: {
-    height: 200,
+    height: hp('25%'),
     justifyContent: 'center',
     alignItems: 'center',
   },
   placeholderText: {
     color: '#888',
-    fontSize: 16,
+    fontSize: wp('4%'),
   },
 });

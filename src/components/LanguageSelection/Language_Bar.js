@@ -1,6 +1,9 @@
-// components/LanguageOption.js
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'; // You can use react-native-vector-icons directly too
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 const LanguageOption = ({ selected, onPress, nativeText, englishText }) => {
   return (
@@ -26,14 +29,14 @@ const LanguageOption = ({ selected, onPress, nativeText, englishText }) => {
 
 const styles = StyleSheet.create({
   wrapper: {
-    marginVertical: 6,
-    marginHorizontal: 16,
+    marginVertical: hp('0.8%'),
+    marginHorizontal: wp('4%'),
   },
   container: {
     borderRadius: 12,
     flexDirection: 'row',
-    paddingVertical: 16,
-    paddingHorizontal: 20,
+    paddingVertical: hp('1.6%'),
+    paddingHorizontal: wp('5%'),
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
     alignItems: 'center',
   },
@@ -43,21 +46,21 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF80',
   },
   radioWrapper: {
-    marginRight: 16,
+    marginRight: wp('4%'),
   },
   radioOuter: {
-    width: 22,
-    height: 22,
-    borderRadius: 11,
+    width: wp('5.5%'),
+    height: wp('5.5%'),
+    borderRadius: wp('2.75%'),
     borderWidth: 2,
     borderColor: '#fff',
     justifyContent: 'center',
     alignItems: 'center',
   },
   radioInner: {
-    width: 10,
-    height: 10,
-    borderRadius: 5,
+    width: wp('2.5%'),
+    height: wp('2.5%'),
+    borderRadius: wp('1.25%'),
     backgroundColor: '#fff',
   },
   textWrapper: {
@@ -65,12 +68,12 @@ const styles = StyleSheet.create({
   },
   nativeText: {
     color: '#fff',
-    fontSize: 16,
+    fontSize: wp('4.2%'),
     fontWeight: '400',
   },
   englishText: {
     color: '#fff',
-    fontSize: 16,
+    fontSize: wp('4.2%'),
     fontWeight: '600',
   },
 });

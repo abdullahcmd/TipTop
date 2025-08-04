@@ -1,9 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import EyeIcon from '../../../assets/svgs/EyeIcon.svg';
-import DollarIcon from '../../../assets/svgs/DollarIcon';
-import PeopleIcon from '../../../assets/svgs/People.svg';
+import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
+import EyeIcon from '../../assets/svgs/EyeIcon.svg';
+import DollarIcon from '../../assets/svgs/DollarIcon.svg';
+import PeopleIcon from '../../assets/svgs/People.svg';
+
 const LiveTopBar = () => {
   return (
     <SafeAreaView edges={['top']} style={styles.safeArea}>
@@ -22,7 +24,6 @@ const LiveTopBar = () => {
             <Text style={styles.statusText}>823</Text>
           </View>
           <View style={styles.statusBox}>
-            {/* 👥 People icon */}
             <PeopleIcon />
           </View>
         </View>
@@ -35,39 +36,41 @@ export default LiveTopBar;
 
 const styles = StyleSheet.create({
   safeArea: {
-    paddingHorizontal: 16,
+    paddingHorizontal: wp('4%'),
   },
   topBar: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: 6,
+    marginTop: wp('1.5%'),
   },
   stopButton: {
     backgroundColor: 'red',
-    borderRadius: 8,
-    paddingHorizontal: 14,
-    paddingVertical: 6,
+    borderRadius: 8, // KEEP FIXED
+    paddingHorizontal: wp('4%'),
+    paddingVertical: wp('1.8%'),
   },
   stopText: {
     color: '#fff',
     fontWeight: 'bold',
+    fontSize: wp('3.5%'),
   },
   statusGroup: {
     flexDirection: 'row',
-    gap: 8,
+    gap: wp('2%'),
     alignItems: 'center',
   },
   statusBox: {
     backgroundColor: 'rgba(0,0,0,0.5)',
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-    borderRadius: 20,
+    paddingHorizontal: wp('3%'),
+    paddingVertical: wp('1.8%'),
+    borderRadius: 20, // KEEP FIXED
     flexDirection: 'row',
     alignItems: 'center',
   },
   statusText: {
     color: '#fff',
-    marginLeft: 6,
+    marginLeft: wp('1.5%'),
+    fontSize: wp('3.3%'),
   },
 });

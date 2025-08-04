@@ -12,6 +12,10 @@ import {
   SafeAreaView,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 const { width } = Dimensions.get('window');
 
@@ -20,19 +24,19 @@ const slides = [
     id: 1,
     title: 'FROM AROUND\nTHE WORLD',
     description: 'Share your talent with the\npeople around the world',
-    image: require('../../assets/images/Onboarding.png'), // Change this path
+    image: require('../../assets/images/Onboarding.png'),
   },
   {
     id: 2,
     title: 'EXPRESS\nYOURSELF',
     description: 'Create, share and grow\nwith confidence',
-    image: require('../../assets/images/Onboarding.png'), // Change this path
+    image: require('../../assets/images/Onboarding.png'),
   },
   {
     id: 3,
     title: 'GET\nDISCOVERED',
     description: 'Be seen by millions and\ngain opportunities',
-    image: require('../../assets/images/Onboarding.png'), // Change this path
+    image: require('../../assets/images/Onboarding.png'),
   },
 ];
 
@@ -111,62 +115,64 @@ const OnboardingScreen = () => {
   );
 };
 
+export default OnboardingScreen;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
   slide: {
     width,
-    paddingHorizontal: 20,
+    paddingHorizontal: wp('5%'),
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 60,
+    marginTop: hp('7%'),
   },
   image: {
     width: '100%',
-    height: 340,
-    marginBottom: 30,
+    height: hp('43%'),
+    marginBottom: hp('4%'),
   },
   title: {
-    fontSize: 26,
-    fontWeight: '900',
-    fontFamily: 'Benzin-Bold',
+    fontSize: wp('7%'),
+    fontFamily: 'benzin-bold',
     color: '#fff',
     textAlign: 'center',
-    lineHeight: 32,
-    marginBottom: 10,
+    lineHeight: wp('9%'),
+    marginBottom: hp('1.2%'),
   },
   description: {
-    fontSize: 16,
-    color: '#fff',
+    fontSize: wp('4.6%'),
+    color: '#FFFFFF',
     opacity: 0.9,
+    marginTop: hp('1%'),
     textAlign: 'center',
-    lineHeight: 24,
+    lineHeight: wp('6.4%'),
   },
   footer: {
-    paddingHorizontal: 20,
-    paddingBottom: 40,
-    marginTop: 30,
+    paddingHorizontal: wp('5%'),
+    paddingBottom: hp('5%'),
+    marginTop: hp('4%'),
     alignItems: 'center',
   },
   dotsContainer: {
     flexDirection: 'row',
-    marginBottom: 20,
+    marginBottom: hp('2.5%'),
   },
   dot: {
-    width: 45,
+    width: wp('11%'),
     height: 1.2,
     borderRadius: 1,
     backgroundColor: 'rgba(255,255,255,0.4)',
-    marginHorizontal: 3,
+    marginHorizontal: wp('0.8%'),
   },
   activeDot: {
     backgroundColor: '#fff',
-    width: 45,
+    width: wp('11%'),
   },
   button: {
     backgroundColor: '#8988D9',
-    paddingVertical: 25,
+    paddingVertical: hp('2.5%'),
     borderRadius: 12,
     width: '100%',
   },
@@ -174,8 +180,6 @@ const styles = StyleSheet.create({
     color: '#fff',
     textAlign: 'center',
     fontWeight: '500',
-    fontSize: 16,
+    fontSize: wp('4.3%'),
   },
 });
-
-export default OnboardingScreen;

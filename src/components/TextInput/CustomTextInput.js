@@ -1,7 +1,18 @@
 import React, { useState } from 'react';
-import { View, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import {
+  View,
+  TextInput,
+  StyleSheet,
+  TouchableOpacity,
+  Platform,
+} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import PrimaryColors from '../../constants/colors';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
+
 const CustomTextInput = ({
   placeholder,
   value,
@@ -24,7 +35,7 @@ const CustomTextInput = ({
         <TouchableOpacity onPress={() => setSecure(!secure)}>
           <Feather
             name={secure ? 'eye' : 'eye-off'}
-            size={20}
+            size={wp('5%')}
             color="#FFFFFFCC"
           />
         </TouchableOpacity>
@@ -40,15 +51,15 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     backgroundColor: PrimaryColors.White10percent_Opacity,
     borderColor: PrimaryColors.White30percent_Opacity,
-    paddingHorizontal: 19,
-    paddingVertical: 18,
+    paddingHorizontal: wp('5%'),
+    paddingVertical: Platform.OS === 'android' ? hp('1.0%') : hp('2.2%'),
     borderRadius: 10,
-    marginVertical: 10,
+    marginVertical: hp('1.2%'),
   },
   input: {
     flex: 1,
     color: 'white',
-    fontSize: 16,
+    fontSize: wp('4%'),
   },
 });
 
