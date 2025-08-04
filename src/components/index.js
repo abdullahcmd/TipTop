@@ -1,0 +1,11 @@
+export { default as Switch } from './Switch/Switch';
+export { default as SettingsItem } from './SettingsItem/SettingsItem';
+export { default as SettingsSection } from './SettingsSection/SettingsSection';
+export { default as ProfilePhotoSelector } from './ProfilePhotoSelector/ProfilePhotoSelector';
+export { default as DisplayName } from './DisplayName/DisplayName';
+export { default as AccountSettingsItem } from './AccountSettingsItem/AccountSettingsItem';
+export { default as MoreOptionsItem } from './MoreOptionsItem/MoreOptionsItem';
+export { default as QRCodeCard } from './QRCodeCard/QRCodeCard';
+export { default as ActionButtons } from './ActionButtons/ActionButtons';
+// export * from './Icons/SettingsIcons';
+// export * from './AccountIcons/AccountIcons'; 

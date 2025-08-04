@@ -7,6 +7,7 @@ import LanguageSelectionScreen from '../screens/LanguageScreen/LanguageScreen';
 import OnboardingScreen from '../screens/onboardingScreen/onboardingScreen';
 import LoginInScreen from '../screens/LoginScreen/LoginScreen';
 import BottomNavigator from './BottonNavigation';
+import SettingScreenNavigation from './SettingScreenStack';
 
 const Stack = createNativeStackNavigator();
 
@@ -25,6 +26,7 @@ const Navigation = () => {
         <Stack.Screen name="Onboarding" component={OnboardingScreen} />
         <Stack.Screen name="Login" component={LoginInScreen} />
         <Stack.Screen name="Home" component={BottomNavigator} />
+        <Stack.Screen name="SettingScreen" component={SettingScreenNavigation} />
       </Stack.Navigator>
     </NavigationContainer>
   );
