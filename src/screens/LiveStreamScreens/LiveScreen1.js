@@ -6,7 +6,7 @@ import {
   ImageBackground,
   TouchableOpacity,
 } from 'react-native';
-import RoundButton from '../../components/LiveScreenButtons/ReusableCentreIconButton';
+import RoundButton from '../../components/LiveStreamComponents/ReusableCentreIconButton';
 import Camera from '../../assets/svgs/Camera.svg';
 import ContinueButton from '../../components/button/button1';
 import PrimaryColors from '../../constants/colors';

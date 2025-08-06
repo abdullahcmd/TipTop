@@ -10,14 +10,14 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-
-import RoundButton from '../../components/LiveScreenButtons/ReusableCentreIconButton';
-import LiveCommentsSection from '../../components/LiveScreenButtons/LiveCommentsSection';
-import LiveTopBar from '../../components/LiveScreenButtons/LiveTopBar';
-
+import RoundButton from '../../components/LiveStreamComponents/ReusableCentreIconButton';
+import LiveCommentsSection from '../../components/LiveStreamComponents/LiveCommentsSection';
+import LiveTopBar from '../../components/LiveStreamComponents/LiveTopBar';
+import LiveBottomSheet from '../../components/LiveStreamComponents/BottomSheet/BottomSheet';
 import VideoIcon from '../../assets/svgs/VideoIcon.svg';
 import MicrophoneIcon from '../../assets/svgs/MicrophoneIcon.svg';
 import CameraIcon from '../../assets/svgs/Camera.svg';
+import { useNavigation } from '@react-navigation/native';
 
 const LiveStreamScreen = () => {
   const comments = [
@@ -38,33 +38,47 @@ const LiveStreamScreen = () => {
   ];
 
   const cameraRef = useRef(null);
+  const bottomSheetRef = useRef(null);
+  const navigation = useNavigation();
   const device = useCameraDevice('front');
   const { hasPermission, requestPermission } = useCameraPermission();
 
-  useEffect(() => {
-    if (!hasPermission) {
-      requestPermission();
-    }
-  }, [hasPermission]);
+  // useEffect(() => {
+  //   if (!hasPermission) {
+  //     requestPermission();
+  //   }
+  // }, [hasPermission]);
 
-  if (!hasPermission)
-    return (
-      <SafeAreaView style={styles.loading}>
-        <Text style={styles.loadingText}>Loading Camera...</Text>
-      </SafeAreaView>
-    );
+  const openBottomSheet = () => {
+    bottomSheetRef.current?.expand();
+  };
+
+  // if (!hasPermission)
+  //   return (
+  //     <SafeAreaView style={styles.loading}>
+  //       <Text style={styles.loadingText}>Loading Camera...</Text>
+  //     </SafeAreaView>
+  //   );
 
   return (
     <SafeAreaView style={styles.container}>
-      <Camera
+      {/* <Camera
         ref={cameraRef}
         style={StyleSheet.absoluteFill}
         device={device}
         isActive={true}
-      />
+      /> */}
 
       <View style={StyleSheet.absoluteFill}>
-        <LiveTopBar />
+        <LiveTopBar
+          stop={() => {
+            navigation.replace('LiveStreamSummary');
+          }}
+          viewerCount="23K"
+          coins="823"
+          participants={3}
+          onPressParticipants={openBottomSheet}
+        />
 
         <View style={styles.flexSpacer} />
 
@@ -86,6 +100,9 @@ const LiveStreamScreen = () => {
             <CameraIcon width={wp('7%')} height={wp('7%')} />
           </RoundButton>
         </View>
+
+        {/* Custom Bottom Sheet with ref */}
+        <LiveBottomSheet ref={bottomSheetRef} />
       </View>
     </SafeAreaView>
   );
