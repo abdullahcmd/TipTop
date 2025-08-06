@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
   },
   tab: {
     flex: 1,
-    height: hp('5.5%'),
+    height: hp('5%'),
   },
   tabInner: {
     flex: 1,
@@ -145,7 +145,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 16,
+    borderTopLeftRadius: 16,
+    borderBottomLeftRadius: 16,
   },
   inactiveTabBackground: {
     flex: 1,
