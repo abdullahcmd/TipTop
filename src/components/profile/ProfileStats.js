@@ -14,8 +14,12 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import { useNavigation } from '@react-navigation/native';
 
 const ProfileHeader = () => {
+
+  const navigation = useNavigation();
+
   return (
     <LinearGradient
       colors={['#d946ef', '#6366f1']}
@@ -29,7 +33,7 @@ const ProfileHeader = () => {
           <TouchableOpacity>
             <Icon name="arrow-left" size={wp('5.2%')} color="#fff" />
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('SettingScreen')}>
             <Icon name="more-horizontal" size={wp('5.2%')} color="#fff" />
           </TouchableOpacity>
         </View>
