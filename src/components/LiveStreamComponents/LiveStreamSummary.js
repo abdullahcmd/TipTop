@@ -1,5 +1,9 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 const SummaryRow = ({ label, value, subtext }) => {
   return (
@@ -18,30 +22,30 @@ export default SummaryRow;
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 12,
+    marginBottom: hp('1.5%'),
   },
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
   label: {
-    fontSize: 16,
+    fontSize: wp('4%'),
     color: '#BEBEBE',
   },
   value: {
-    fontSize: 16,
+    fontSize: wp('4%'),
     color: '#fff',
     fontWeight: 'bold',
   },
   sub: {
     textAlign: 'right',
     color: '#7A7A7A',
-    fontSize: 14,
-    marginTop: 2,
+    fontSize: wp('3.4%'),
+    marginTop: hp('0.3%'),
   },
   divider: {
     height: 1,
     backgroundColor: '#333',
-    marginTop: 10,
+    marginTop: hp('1.2%'),
   },
 });

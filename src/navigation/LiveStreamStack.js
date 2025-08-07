@@ -11,7 +11,7 @@ const Stack = createNativeStackNavigator();
 const LiveStreamNavigation = () => {
   return (
     <Stack.Navigator
-      initialRouteName="LiveStreamDiscovery"
+      initialRouteName="LiveScreen1"
       screenOptions={{ headerShown: false }}
     >
       <Stack.Screen

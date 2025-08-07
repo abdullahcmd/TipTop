@@ -5,13 +5,21 @@ import {
   StatusBar,
   SafeAreaView,
   Platform,
+  ScrollView,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import ContinueButton from '../../components/button/button1';
 import UserInfoCard from '../../components/LiveStreamComponents/LiveStreamUserInfoCard';
 import SummaryRow from '../../components/LiveStreamComponents/LiveStreamSummary';
+import { useNavigation } from '@react-navigation/native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 const LiveSummaryScreen = () => {
+  const navigation = useNavigation();
+
   return (
     <LinearGradient
       colors={['#4A00E0', '#1E1E1E']}
@@ -25,12 +33,17 @@ const LiveSummaryScreen = () => {
           backgroundColor="transparent"
           barStyle="light-content"
         />
-        <View style={styles.container}>
+
+        <ScrollView
+          contentContainerStyle={styles.scrollContent}
+          showsVerticalScrollIndicator={false}
+        >
           <UserInfoCard
             avatar={require('../../assets/images/ProfileImage.png')}
             username="sofiya_stefen"
             fullname="Sofiya Stefen"
           />
+
           <View style={styles.summaryContainer}>
             <SummaryRow label="Streamed For" value="1h 10m 35s" />
             <SummaryRow label="Viewers" value="853" />
@@ -41,8 +54,13 @@ const LiveSummaryScreen = () => {
               subtext="Battle : 12400 + Live : 163"
             />
           </View>
-          <ContinueButton title="Go Home" secondStyle={{ color: 'purple' }} />
-        </View>
+
+          <ContinueButton
+            title="Go Home"
+            secondStyle={{ color: 'purple' }}
+            onPress={() => navigation.navigate('Home')}
+          />
+        </ScrollView>
       </SafeAreaView>
     </LinearGradient>
   );
@@ -58,16 +76,12 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
-  container: {
-    flex: 1,
-    paddingHorizontal: 20,
-    paddingVertical: 30,
-    justifyContent: 'space-between',
+  scrollContent: {
+    paddingHorizontal: wp('5%'),
+    paddingVertical: hp('4%'),
   },
   summaryContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    gap: 16,
-    marginTop: Platform.OS === 'ios' ? 40 : 20,
+    marginTop: hp('4%'),
+    rowGap: hp('2%'),
   },
 });

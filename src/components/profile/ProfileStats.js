@@ -17,7 +17,6 @@ import {
 import { useNavigation } from '@react-navigation/native';
 
 const ProfileHeader = () => {
-
   const navigation = useNavigation();
 
   return (
@@ -27,13 +26,17 @@ const ProfileHeader = () => {
       end={{ x: 1, y: 1 }}
       style={styles.gradient}
     >
-      <SafeAreaView style={{ paddingTop: hp('1%') }}>
+      <SafeAreaView
+        style={{ width: '100%', height: hp('35%'), paddingTop: hp('3%') }}
+      >
         {/* Top Navigation */}
         <View style={styles.navRow}>
           <TouchableOpacity>
             <Icon name="arrow-left" size={wp('5.2%')} color="#fff" />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('SettingScreen')}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('SettingScreen')}
+          >
             <Icon name="more-horizontal" size={wp('5.2%')} color="#fff" />
           </TouchableOpacity>
         </View>
@@ -81,8 +84,6 @@ const ProfileHeader = () => {
 
 const styles = StyleSheet.create({
   gradient: {
-    width: '100%',
-    height: hp('40%'),
     paddingTop: Platform.OS === 'android' ? hp('3.5%') : 0,
   },
   navRow: {

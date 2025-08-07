@@ -43,31 +43,31 @@ const LiveStreamScreen = () => {
   const device = useCameraDevice('front');
   const { hasPermission, requestPermission } = useCameraPermission();
 
-  // useEffect(() => {
-  //   if (!hasPermission) {
-  //     requestPermission();
-  //   }
-  // }, [hasPermission]);
+  useEffect(() => {
+    if (!hasPermission) {
+      requestPermission();
+    }
+  }, [hasPermission]);
 
   const openBottomSheet = () => {
     bottomSheetRef.current?.expand();
   };
 
-  // if (!hasPermission)
-  //   return (
-  //     <SafeAreaView style={styles.loading}>
-  //       <Text style={styles.loadingText}>Loading Camera...</Text>
-  //     </SafeAreaView>
-  //   );
+  if (!hasPermission)
+    return (
+      <SafeAreaView style={styles.loading}>
+        <Text style={styles.loadingText}>Loading Camera...</Text>
+      </SafeAreaView>
+    );
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* <Camera
+      <Camera
         ref={cameraRef}
         style={StyleSheet.absoluteFill}
         device={device}
         isActive={true}
-      /> */}
+      />
 
       <View style={StyleSheet.absoluteFill}>
         <LiveTopBar

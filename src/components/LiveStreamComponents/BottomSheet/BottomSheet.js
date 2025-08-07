@@ -13,6 +13,26 @@ import CoHostsTab from './Tabs/CoHostTab';
 import BottomSheetTabs from './BottomSheetTab';
 
 const { height } = Dimensions.get('window');
+const invitedUsers = [
+  {
+    id: '1',
+    username: 'jesica_joseph',
+    fullname: 'Jesica Joseph',
+    image: require('../../../assets/images/ProfileImage.png'),
+  },
+  {
+    id: '2',
+    username: "jenny_d'souza",
+    fullname: "Jenny D'souza",
+    image: require('../../../assets/images/ProfileImage.png'),
+  },
+  {
+    id: '3',
+    username: 'WilsonDukes',
+    fullname: 'Wilson Dukes',
+    image: require('../../../assets/images/ProfileImage.png'),
+  },
+];
 
 const LiveBottomSheet = forwardRef((props, ref) => {
   const bottomSheetRef = useRef(null);
@@ -36,7 +56,7 @@ const LiveBottomSheet = forwardRef((props, ref) => {
       case 'Audience':
         return <InvitedTab />;
       case 'Invited':
-        return <InvitedTab />;
+        return <InvitedTab UsersList={invitedUsers} />;
       case 'Co-hosts':
         return <CoHostsTab />;
       default:

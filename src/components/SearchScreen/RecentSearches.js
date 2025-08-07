@@ -1,6 +1,10 @@
 // components/Search/RecentSearches.js
 import React from 'react';
 import { View, Text, FlatList, StyleSheet, Image } from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 const recentUsers = [
   {
@@ -28,6 +32,21 @@ const recentUsers = [
     name: 'Richard\nMoore',
     image: require('../../assets/images/ProfileImage.png'),
   },
+  {
+    id: '6',
+    name: 'Richard\nMoore',
+    image: require('../../assets/images/ProfileImage.png'),
+  },
+  {
+    id: '7',
+    name: 'Richard\nMoore',
+    image: require('../../assets/images/ProfileImage.png'),
+  },
+  {
+    id: '8',
+    name: 'Richard\nMoore',
+    image: require('../../assets/images/ProfileImage.png'),
+  },
 ];
 
 const RecentSearches = () => {
@@ -52,27 +71,31 @@ const RecentSearches = () => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 12,
-    marginTop: 8,
+    paddingHorizontal: wp('4%'),
+    marginTop: hp('1.2%'),
+    marginBottom: hp(2),
   },
   title: {
     fontWeight: 'bold',
-    fontSize: 16,
-    marginBottom: 12,
+    fontSize: wp('4.5%'),
+    marginBottom: hp('2%'),
+    color: '#000',
   },
   user: {
     alignItems: 'center',
-    marginRight: 14,
+    marginRight: wp('5%'),
   },
   avatar: {
-    width: 58,
-    height: 58,
-    borderRadius: 29,
+    width: wp('18%'),
+    height: wp('18%'),
+    borderRadius: wp('7%'),
   },
   name: {
     textAlign: 'center',
-    marginTop: 4,
-    fontSize: 12,
+    marginTop: hp('0.8%'),
+    fontSize: wp('3%'),
+    color: '#333',
+    lineHeight: hp('2%'),
   },
 });
 

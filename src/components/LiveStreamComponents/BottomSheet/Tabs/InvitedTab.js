@@ -10,57 +10,48 @@ import {
 } from 'react-native';
 import { widthPercentageToDP } from 'react-native-responsive-screen';
 import Feather from 'react-native-vector-icons/Feather';
-
-const invitedUsers = [
-  {
-    id: '1',
-    username: 'jesica_joseph',
-    fullname: 'Jesica Joseph',
-    image: require('../../../../assets/images/ProfileImage.png'),
-  },
-  {
-    id: '2',
-    username: "jenny_d'souza",
-    fullname: "Jenny D'souza",
-    image: require('../../../../assets/images/ProfileImage.png'),
-  },
-  {
-    id: '3',
-    username: 'WilsonDukes',
-    fullname: 'Wilson Dukes',
-    image: require('../../../../assets/images/ProfileImage.png'),
-  },
-];
-
-const InvitedTab = () => {
+import Verified from '../../../../assets/svgs/Id_Verified.svg';
+const InvitedTab = ({
+  UsersList,
+  ButtonText,
+  onPress,
+  SearchBar = true,
+  style2,
+}) => {
   const renderItem = ({ item }) => (
     <View style={styles.userRow}>
       <Image source={item.image} style={styles.avatar} />
       <View style={styles.userInfo}>
-        <Text style={styles.username}>{item.username}</Text>
+        <Text style={styles.username}>
+          {item.username}
+          {'  '}
+          <Verified />
+        </Text>
         <Text style={styles.fullname}>{item.fullname}</Text>
       </View>
-      <TouchableOpacity style={styles.cancelButton}>
-        <Text style={styles.cancelText}>Cancel</Text>
+      <TouchableOpacity style={styles.cancelButton} onPress={onPress}>
+        <Text style={styles.cancelText}>{ButtonText}</Text>
       </TouchableOpacity>
     </View>
   );
 
   return (
-    <View style={styles.container}>
-      <View style={styles.searchBar}>
-        <Feather name="search" size={18} color="#888" />
-        <TextInput
-          placeholder="Search here..."
-          placeholderTextColor="#888"
-          style={styles.searchInput}
-        />
-      </View>
-
+    <View style={[styles.container, style2]}>
+      {SearchBar && (
+        <View style={[styles.searchBar]}>
+          <Feather name="search" size={18} color="#888" />
+          <TextInput
+            placeholder="Search here..."
+            placeholderTextColor="#888"
+            style={styles.searchInput}
+          />
+        </View>
+      )}
       {/* List */}
       <FlatList
-        data={invitedUsers}
+        data={UsersList}
         keyExtractor={item => item.id}
+        scrollEnabled={true}
         renderItem={renderItem}
         contentContainerStyle={{ paddingTop: 12 }}
         showsVerticalScrollIndicator={false}

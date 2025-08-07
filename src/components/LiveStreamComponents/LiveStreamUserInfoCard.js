@@ -1,5 +1,9 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, Platform } from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 const UserInfoCard = ({ avatar, username, fullname }) => {
   return (
@@ -26,47 +30,47 @@ export default UserInfoCard;
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    marginTop: 10,
+    marginTop: hp('1.5%'),
   },
   avatar: {
-    width: 120,
-    height: 120,
-    borderRadius: 60,
+    width: wp('32%'),
+    height: wp('32%'),
+    borderRadius: wp('16%'),
     borderWidth: 4,
     borderColor: '#B86DF4',
   },
   nameContainer: {
     alignItems: 'center',
-    marginTop: 16,
+    marginTop: hp('2%'),
   },
   row: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   username: {
-    fontSize: 20,
+    fontSize: wp('5%'),
     fontWeight: 'bold',
     color: '#fff',
-    marginRight: 6,
+    marginRight: wp('2%'),
   },
   verified: {
-    width: 20,
-    height: 20,
+    width: wp('5%'),
+    height: wp('5%'),
   },
   fullname: {
     color: '#C4C4C4',
-    fontSize: 16,
-    marginTop: 4,
+    fontSize: wp('4%'),
+    marginTop: hp('0.5%'),
   },
   heading: {
-    fontSize: 28,
+    fontSize: wp('7.5%'),
     color: '#fff',
     fontWeight: 'bold',
-    marginTop: 30,
+    marginTop: hp('3.5%'),
   },
   subText: {
-    fontSize: 16,
+    fontSize: wp('4%'),
     color: '#BEBEBE',
-    marginTop: Platform.OS === 'ios' ? 17 : 8,
+    marginTop: Platform.OS === 'ios' ? hp('2%') : hp('1%'),
   },
 });
