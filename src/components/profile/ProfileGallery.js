@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: wp('4%'),
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
-    marginTop: -hp('5%'),
+    marginTop: -hp('2%'),
     backgroundColor: '#fff',
     flex: 1,
     paddingTop: hp('2%'),

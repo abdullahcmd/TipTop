@@ -8,9 +8,7 @@ import { wp } from '../../../utils/helpers/responsive';
 
 const BlockedUsersScreen = () => {
   return (
-    <AppSafeAreaView
-      statusBarProps={{ barStyle: 'dark-content', backgroundColor: 'red' }}
-    >
+    <AppSafeAreaView statusBarProps={{ barStyle: 'dark-content' }}>
       <Header title="Blocked Users" showBack={true} />
       <InvitedTab
         SearchBar={false}
