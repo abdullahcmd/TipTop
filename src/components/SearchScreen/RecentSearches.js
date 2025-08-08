@@ -10,42 +10,42 @@ const recentUsers = [
   {
     id: '1',
     name: 'Gerard\nFabiano',
-    image: require('../../assets/images/ProfileImage.png'),
+    image: 'https://i.pravatar.cc/150?img=1',
   },
   {
     id: '2',
     name: 'Amber\nJulia',
-    image: require('../../assets/images/ProfileImage.png'),
+    image: 'https://i.pravatar.cc/150?img=2',
   },
   {
     id: '3',
     name: 'Fernando\nAgaro',
-    image: require('../../assets/images/ProfileImage.png'),
+    image: 'https://i.pravatar.cc/150?img=3',
   },
   {
     id: '4',
     name: 'Jane\nSunny',
-    image: require('../../assets/images/ProfileImage.png'),
+    image: 'https://i.pravatar.cc/150?img=4',
   },
   {
     id: '5',
     name: 'Richard\nMoore',
-    image: require('../../assets/images/ProfileImage.png'),
+    image: 'https://i.pravatar.cc/150?img=5',
   },
   {
     id: '6',
     name: 'Richard\nMoore',
-    image: require('../../assets/images/ProfileImage.png'),
+    image: 'https://i.pravatar.cc/150?img=6',
   },
   {
     id: '7',
     name: 'Richard\nMoore',
-    image: require('../../assets/images/ProfileImage.png'),
+    image: 'https://i.pravatar.cc/150?img=7',
   },
   {
     id: '8',
     name: 'Richard\nMoore',
-    image: require('../../assets/images/ProfileImage.png'),
+    image: 'https://i.pravatar.cc/150?img=8',
   },
 ];
 
@@ -59,7 +59,7 @@ const RecentSearches = () => {
         keyExtractor={item => item.id}
         renderItem={({ item }) => (
           <View style={styles.user}>
-            <Image source={item.image} style={styles.avatar} />
+            <Image source={{ uri: item.image }} style={styles.avatar} />
             <Text style={styles.name}>{item.name}</Text>
           </View>
         )}
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   avatar: {
     width: wp('18%'),
     height: wp('18%'),
-    borderRadius: wp('7%'),
+    borderRadius: 60,
   },
   name: {
     textAlign: 'center',

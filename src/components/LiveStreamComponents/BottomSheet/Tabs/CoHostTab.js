@@ -20,21 +20,21 @@ const initialCoHosts = [
     id: '1',
     username: 'jesica_joseph',
     fullname: 'Jesica Joseph',
-    avatar: require('../../../../assets/images/ProfileImage.png'),
+    avatar: 'https://i.pravatar.cc/150?img=9',
     muted: false,
   },
   {
     id: '2',
     username: "jenny_d'souza",
     fullname: "Jenny D'souza",
-    avatar: require('../../../../assets/images/ProfileImage.png'),
+    avatar: 'https://i.pravatar.cc/150?img=10',
     muted: false,
   },
   {
     id: '3',
     username: 'WilsonDukes',
     fullname: 'Wilson Dukes',
-    avatar: require('../../../../assets/images/ProfileImage.png'),
+    avatar: 'https://i.pravatar.cc/150?img=11',
     muted: false,
   },
 ];
@@ -56,7 +56,7 @@ const CoHostsTab = () => {
 
   const renderItem = ({ item }) => (
     <View style={styles.itemRow}>
-      <Image source={item.avatar} style={styles.avatar} />
+      <Image source={{ uri: item.avatar }} style={styles.avatar} />
       <View style={styles.infoBlock}>
         <Text style={styles.username}>{item.username}</Text>
         <Text style={styles.fullname}>{item.fullname}</Text>
@@ -85,7 +85,6 @@ const CoHostsTab = () => {
     <View
       style={{
         height: '150%',
-        marginTop: widthPercentageToDP(23),
         paddingBottom: 24,
       }}
     >

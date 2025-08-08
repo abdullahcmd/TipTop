@@ -1,17 +1,17 @@
 import React from 'react';
-import { View, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
+import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import HomeIcon from '../../assets/svgs/HomeSimple.svg';
 import HomeIconFilled from '../../assets/svgs/Home.svg';
-import SearchIcon from '../../assets/svgs/SearchSimple.svg';
-import SearchIconFilled from '../../assets/svgs/Search.svg';
-import AddBoxIcon from '../../assets/svgs/BoxSimple.svg';
-import AddBoxIconFilled from '../../assets/svgs/Box.svg';
+import Category from '../../assets/svgs/Categories.svg';
+import CategoryFilled from '../../assets/svgs/CategoryColored.svg';
+import ChatColored from '../../assets/svgs/ChatColored.svg';
+import Chat from '../../assets/svgs/Chat.svg';
 import LiveIcon from '../../assets/svgs/LiveStreamSimple.svg';
 import LiveIconFilled from '../../assets/svgs/LiveStream.svg';
-import ProfileImage from '../../assets/svgs/ProfileImage.svg';
+import ProfileIconColored from '../../assets/svgs/ProfileColored.svg';
+import ProfileIcon from '../../assets/svgs/Profile.svg';
 import Icon from 'react-native-vector-icons/Feather';
-
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -31,9 +31,9 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
         );
       case 'Search':
         return isFocused ? (
-          <SearchIconFilled width={size} height={size} />
+          <CategoryFilled width={size} height={size} />
         ) : (
-          <SearchIcon width={size} height={size} />
+          <Category width={size} height={size} />
         );
       case 'LiveStream':
         return isFocused ? (
@@ -43,9 +43,15 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
         );
       case 'AddBox':
         return isFocused ? (
-          <AddBoxIconFilled width={size} height={size} />
+          <ChatColored width={size} height={size} />
         ) : (
-          <AddBoxIcon width={size} height={size} />
+          <Chat width={size} height={size} />
+        );
+      case 'Profile':
+        return isFocused ? (
+          <ProfileIconColored width={size} height={size} />
+        ) : (
+          <ProfileIcon width={size} height={size} />
         );
       default:
         return null;
@@ -56,9 +62,7 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
     <View
       style={[
         styles.container,
-        {
-          paddingBottom: insets.bottom > 0 ? insets.bottom : hp('1.5%'),
-        },
+        { paddingBottom: insets.bottom > 0 ? insets.bottom : hp('1.5%') },
       ]}
     >
       {state.routes.map((route, index) => {
@@ -76,7 +80,6 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
           }
         };
 
-        // Center "Add" Button
         if (route.name === 'Add') {
           return (
             <TouchableOpacity
@@ -98,14 +101,14 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
             onPress={onPress}
             style={styles.tab}
           >
-            {route.name === 'Profile' ? (
-              <ProfileImage width={wp('7%')} height={wp('7%')} />
-            ) : (
-              <View style={styles.iconWrapper}>
-                {isFocused && <View style={styles.underline} />}
-                {getIcon(route.name, isFocused)}
-              </View>
-            )}
+            <View
+              style={[
+                styles.iconWrapper,
+                isFocused && styles.focusedBorder, // highlight when focused
+              ]}
+            >
+              {getIcon(route.name, isFocused)}
+            </View>
           </TouchableOpacity>
         );
       })}
@@ -132,10 +135,17 @@ const styles = StyleSheet.create({
   },
   iconWrapper: {
     alignItems: 'center',
+    justifyContent: 'center',
+    padding: wp('2%'),
+    borderRadius: 50,
+  },
+  focusedBorder: {
+    borderRadius: 90,
+    borderWidth: 2,
+    borderColor: '#C86CFA', // highlight border color
   },
   underline: {
     height: hp('0.4%'),
-    backgroundColor: '#C86CFA',
     width: wp('8%'),
     borderBottomLeftRadius: 4,
     borderBottomRightRadius: 4,
@@ -148,8 +158,6 @@ const styles = StyleSheet.create({
   plusCircle: {
     width: wp('12%'),
     height: wp('12%'),
-    backgroundColor: '#C86CFA',
-    borderRadius: 30,
     justifyContent: 'center',
     alignItems: 'center',
   },

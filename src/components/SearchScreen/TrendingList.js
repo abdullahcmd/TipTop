@@ -19,35 +19,35 @@ const initialData = [
     id: '1',
     name: 'Nikita Malion',
     mutuals: 7,
-    image: require('../../assets/images/ProfileImage.png'),
+    image: 'https://i.pravatar.cc/150?img=9',
     followed: false,
   },
   {
     id: '2',
     name: 'Charming Charlotte',
     mutuals: 48,
-    image: require('../../assets/images/ProfileImage.png'),
+    image: 'https://i.pravatar.cc/150?img=10',
     followed: true,
   },
   {
     id: '3',
     name: 'Naive Queen',
     mutuals: 74,
-    image: require('../../assets/images/ProfileImage.png'),
+    image: 'https://i.pravatar.cc/150?img=11',
     followed: false,
   },
   {
     id: '4',
     name: 'Oscar Scotty',
     mutuals: 3,
-    image: require('../../assets/images/ProfileImage.png'),
+    image: 'https://i.pravatar.cc/150?img=12',
     followed: false,
   },
   {
     id: '5',
     name: 'Little Lady',
     mutuals: 7,
-    image: require('../../assets/images/ProfileImage.png'),
+    image: 'https://i.pravatar.cc/150?img=13',
     followed: true,
   },
 ];
@@ -65,7 +65,7 @@ const TrendingList = () => {
 
   const renderItem = ({ item }) => (
     <View style={styles.row}>
-      <Image source={item.image} style={styles.avatar} />
+      <Image source={{ uri: item.image }} style={styles.avatar} />
       <View style={{ flex: 1 }}>
         <Text style={styles.name}>{item.name}</Text>
         <Text style={styles.mutuals}>{item.mutuals} mutual friends</Text>

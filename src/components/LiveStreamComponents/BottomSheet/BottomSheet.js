@@ -5,48 +5,23 @@ import React, {
   useImperativeHandle,
   useRef,
 } from 'react';
-import { StyleSheet, Dimensions, Text } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 import BottomSheet, { BottomSheetView } from '@gorhom/bottom-sheet';
 import RequestTab from './Tabs/RequestTab';
 import InvitedTab from './Tabs/InvitedTab';
 import CoHostsTab from './Tabs/CoHostTab';
 import BottomSheetTabs from './BottomSheetTab';
-
-const { height } = Dimensions.get('window');
-const invitedUsers = [
-  {
-    id: '1',
-    username: 'jesica_joseph',
-    fullname: 'Jesica Joseph',
-    image: require('../../../assets/images/ProfileImage.png'),
-  },
-  {
-    id: '2',
-    username: "jenny_d'souza",
-    fullname: "Jenny D'souza",
-    image: require('../../../assets/images/ProfileImage.png'),
-  },
-  {
-    id: '3',
-    username: 'WilsonDukes',
-    fullname: 'Wilson Dukes',
-    image: require('../../../assets/images/ProfileImage.png'),
-  },
-];
+import { hp } from '../../../utils/helpers/responsive';
+import { invitedUsers } from '../../../utils/DummyData/DummyData';
 
 const LiveBottomSheet = forwardRef((props, ref) => {
   const bottomSheetRef = useRef(null);
   const snapPoints = useMemo(() => ['60%'], []);
   const [activeTab, setActiveTab] = useState('Requests');
 
-  // Expose `expand()` and `close()` to parent
   useImperativeHandle(ref, () => ({
-    expand: () => {
-      bottomSheetRef.current?.expand();
-    },
-    close: () => {
-      bottomSheetRef.current?.close();
-    },
+    expand: () => bottomSheetRef.current?.expand(),
+    close: () => bottomSheetRef.current?.close(),
   }));
 
   const renderTabContent = () => {
@@ -54,9 +29,15 @@ const LiveBottomSheet = forwardRef((props, ref) => {
       case 'Requests':
         return <RequestTab />;
       case 'Audience':
-        return <InvitedTab />;
+        return (
+          <InvitedTab
+            SearchBar={false}
+            UsersList={invitedUsers}
+            showButton={false}
+          />
+        );
       case 'Invited':
-        return <InvitedTab UsersList={invitedUsers} />;
+        return <InvitedTab UsersList={invitedUsers} ButtonText="Cancel" />;
       case 'Co-hosts':
         return <CoHostsTab />;
       default:
@@ -71,12 +52,15 @@ const LiveBottomSheet = forwardRef((props, ref) => {
       snapPoints={snapPoints}
       enablePanDownToClose
     >
+      {/* Static header area */}
       <BottomSheetView style={styles.container}>
         <Text style={styles.title}>Members</Text>
         <BottomSheetTabs activeTab={activeTab} setActiveTab={setActiveTab} />
-        <BottomSheetView style={styles.tabContent}>
-          {renderTabContent()}
-        </BottomSheetView>
+      </BottomSheetView>
+
+      {/* Scrollable tab content */}
+      <BottomSheetView style={styles.tabContent}>
+        {renderTabContent()}
       </BottomSheetView>
     </BottomSheet>
   );
@@ -86,8 +70,9 @@ export default LiveBottomSheet;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     paddingHorizontal: 16,
+    paddingBottom: 8,
+    marginBottom: hp(19),
   },
   title: {
     textAlign: 'center',
@@ -97,6 +82,6 @@ const styles = StyleSheet.create({
   },
   tabContent: {
     flex: 1,
-    marginTop: 10,
+    marginTop: hp(15),
   },
 });

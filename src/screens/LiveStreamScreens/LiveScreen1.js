@@ -60,6 +60,18 @@ const LiveScreen = () => {
           }}
           buttonStyle={styles.startBtn}
         />
+        <ContinueButton
+          onPress={() => {
+            navigation.navigate('LiveStreamBattle');
+          }}
+          title="See Battle"
+          secondStyle={{
+            color: PrimaryColors.PurpleText,
+            fontWeight: '600',
+            fontSize: wp('4%'),
+          }}
+          buttonStyle={[styles.startBtn, { marginTop: 0 }]}
+        />
       </View>
     </ImageBackground>
   );

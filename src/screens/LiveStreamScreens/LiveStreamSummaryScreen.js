@@ -58,7 +58,7 @@ const LiveSummaryScreen = () => {
           <ContinueButton
             title="Go Home"
             secondStyle={{ color: 'purple' }}
-            onPress={() => navigation.navigate('Home')}
+            onPress={() => navigation.replace('Home')}
           />
         </ScrollView>
       </SafeAreaView>

@@ -32,9 +32,7 @@ const users = [
 
 const RequestTab = () => {
   return (
-    <View
-      style={{ marginTop: wp(20), paddingHorizontal: wp(4), height: '160%' }}
-    >
+    <View style={{ paddingHorizontal: wp(4), height: '160%' }}>
       <FlatList
         data={users}
         keyExtractor={item => item.id}

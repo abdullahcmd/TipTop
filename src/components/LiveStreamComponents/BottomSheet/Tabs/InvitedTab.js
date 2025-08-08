@@ -4,41 +4,44 @@ import {
   Text,
   StyleSheet,
   TextInput,
-  FlatList,
   Image,
   TouchableOpacity,
 } from 'react-native';
-import { widthPercentageToDP } from 'react-native-responsive-screen';
+import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import Feather from 'react-native-vector-icons/Feather';
 import Verified from '../../../../assets/svgs/Id_Verified.svg';
+import { BottomSheetFlatList } from '@gorhom/bottom-sheet';
+
 const InvitedTab = ({
   UsersList,
   ButtonText,
   onPress,
+  showButton = true,
   SearchBar = true,
   style2,
 }) => {
   const renderItem = ({ item }) => (
     <View style={styles.userRow}>
-      <Image source={item.image} style={styles.avatar} />
+      <Image source={{ uri: item.image }} style={styles.avatar} />
       <View style={styles.userInfo}>
         <Text style={styles.username}>
-          {item.username}
-          {'  '}
+          {item.username} {'  '}
           <Verified />
         </Text>
         <Text style={styles.fullname}>{item.fullname}</Text>
       </View>
-      <TouchableOpacity style={styles.cancelButton} onPress={onPress}>
-        <Text style={styles.cancelText}>{ButtonText}</Text>
-      </TouchableOpacity>
+      {showButton && (
+        <TouchableOpacity style={styles.cancelButton} onPress={onPress}>
+          <Text style={styles.cancelText}>{ButtonText}</Text>
+        </TouchableOpacity>
+      )}
     </View>
   );
 
   return (
     <View style={[styles.container, style2]}>
       {SearchBar && (
-        <View style={[styles.searchBar]}>
+        <View style={styles.searchBar}>
           <Feather name="search" size={18} color="#888" />
           <TextInput
             placeholder="Search here..."
@@ -47,13 +50,11 @@ const InvitedTab = ({
           />
         </View>
       )}
-      {/* List */}
-      <FlatList
+      <BottomSheetFlatList
         data={UsersList}
         keyExtractor={item => item.id}
-        scrollEnabled={true}
         renderItem={renderItem}
-        contentContainerStyle={{ paddingTop: 12 }}
+        contentContainerStyle={{ paddingTop: wp(2) }}
         showsVerticalScrollIndicator={false}
       />
     </View>
@@ -64,16 +65,12 @@ export default InvitedTab;
 
 const styles = StyleSheet.create({
   container: {
-    padding: 16,
-    marginTop: widthPercentageToDP(12),
-    // paddingBottom: 40,
+    paddingHorizontal: 16,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
-    // flex: 1,
   },
-
   searchBar: {
-    marginTop: 16,
+    // marginTop: 16,
     backgroundColor: '#f1f1f1',
     borderRadius: 12,
     flexDirection: 'row',
@@ -98,9 +95,7 @@ const styles = StyleSheet.create({
     borderRadius: 23,
     marginRight: 12,
   },
-  userInfo: {
-    flex: 1,
-  },
+  userInfo: { flex: 1 },
   username: {
     fontWeight: '700',
     fontSize: 15,
