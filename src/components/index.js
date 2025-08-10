@@ -7,5 +7,6 @@ export { default as AccountSettingsItem } from './AccountSettingsItem/AccountSet
 export { default as MoreOptionsItem } from './MoreOptionsItem/MoreOptionsItem';
 export { default as QRCodeCard } from './QRCodeCard/QRCodeCard';
 export { default as ActionButtons } from './ActionButtons/ActionButtons';
+export { default as BlockedUserItem } from './BlockedUserItem/BlockedUserItem';
 // export * from './Icons/SettingsIcons';
 // export * from './AccountIcons/AccountIcons'; 

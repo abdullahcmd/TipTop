@@ -34,15 +34,15 @@ const SettingScreen = ({ navigation }) => {
     };
 
     const handleSavedPosts = () => {
-        navigation.navigate('AccountSettingScreen');
+        navigation.navigate('SavedPosts');
     };
 
     const handleLanguages = () => {
-        // Navigate to languages screen
+        navigation.navigate('SubscriptionScreen');
     };
 
     const handleBlockedUsers = () => {
-        // Navigate to blocked users screen
+        navigation.navigate('BlockedUsers');
     };
 
     const handleQRCode = () => {
@@ -58,7 +58,7 @@ const SettingScreen = ({ navigation }) => {
     };
 
     const handleNotifications = () => {
-        // Navigate to notifications screen
+        navigation.navigate('NotificationScreen');
     };
 
     // Array for account settings items
@@ -66,7 +66,7 @@ const SettingScreen = ({ navigation }) => {
         {
             icon: <SettingIcon width={24} height={24} color={svgColor} />,
             title: "Account Settings",
-            onPress: handleSavedPosts,
+            onPress: () => navigation.navigate('AccountSettingScreen'),
             showArrow: true,
         },
         {
