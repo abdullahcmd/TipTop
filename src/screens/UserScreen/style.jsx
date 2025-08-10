@@ -6,7 +6,7 @@ const BUBBLE_BG = '#ECECEC';
 const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: '#fff' },
 
-  header: {marginTop:50, flexDirection: 'row', alignItems: 'center', paddingHorizontal: 12, paddingTop: 4, paddingBottom: 8, borderBottomWidth: 1, borderColor: '#eee' },
+  header: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 12, paddingTop: 4, paddingBottom: 8, borderBottomWidth: 1, borderColor: '#eee' },
   icon: { fontSize: 20 },
   iconBtn: { marginLeft: 12 },
   headerAvatar: { width: 34, height: 34, borderRadius: 17, marginLeft: 8, marginRight: 10 },

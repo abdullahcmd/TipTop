@@ -30,7 +30,7 @@ const ProfileHeader = () => {
       <SafeAreaView style={{ paddingTop: hp('1%') }}>
         {/* Top Navigation */}
         <View style={styles.navRow}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
             <Icon name="arrow-left" size={wp('5.2%')} color="#fff" />
           </TouchableOpacity>
           <TouchableOpacity onPress={() => navigation.navigate('SettingScreen')}>

@@ -6,8 +6,6 @@ import {
   ImageBackground,
   TouchableOpacity,
 } from 'react-native';
-import RoundButton from '../../components/LiveScreenButtons/ReusableCentreIconButton';
-import Camera from '../../assets/svgs/Camera.svg';
 import ContinueButton from '../../components/button/button1';
 import PrimaryColors from '../../constants/colors';
 import {
@@ -23,12 +21,12 @@ const LiveScreen = () => {
     <ImageBackground
       source={require('../../assets/images/LiveScreen.png')}
       style={styles.container}
-      imageStyle={{ borderRadius: 24 }}
+      // imageStyle={{  borderRadius: 24 }}
     >
       <View style={styles.overlayContent}>
-        <RoundButton>
+        {/* <RoundButton>
           <Camera />
-        </RoundButton>
+        </RoundButton> */}
 
         <View style={styles.textBox}>
           <Text style={styles.description}>
@@ -71,11 +69,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     overflow: 'hidden',
+    
     justifyContent: 'flex-end',
   },
   overlayContent: {
     alignItems: 'center',
-    paddingBottom: hp('5%'),
+    paddingBottom: hp('0.1%'),
     paddingHorizontal: wp('5%'),
   },
   textBox: {
@@ -83,7 +82,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     padding: wp('4%'),
     marginTop: hp('2%'),
-    marginBottom: hp('1.5%'),
+    // marginBottom: hp('1.5%'),
     width: '100%',
   },
   description: {
@@ -94,7 +93,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignSelf: 'flex-start',
     justifyContent: 'flex-start',
-    marginVertical: hp('1.5%'),
+    marginVertical: hp('.5%'),
   },
   checkbox: {
     width: wp('5%'),
@@ -111,7 +110,7 @@ const styles = StyleSheet.create({
   },
   startBtn: {
     width: '100%',
-    marginTop: hp('1.5%'),
+    // marginTop: hp('1.5%'),
   },
   startBtnText: {
     color: '#9333ea',

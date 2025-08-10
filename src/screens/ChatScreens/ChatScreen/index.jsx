@@ -4,12 +4,16 @@ import {
   View,
   Text,
   StyleSheet,
+  StatusBar,
   FlatList,
   Image,
   TextInput,
   TouchableOpacity,
 } from 'react-native';
 import styles from './style';
+import { useNavigation } from '@react-navigation/native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 const MESSAGES = [
   { id: 'm1', type: 'other', text: "I like living here, it's not too big and it has great weather all year long, perfect!", time: '10:11 AM' },
   { id: 'm2', type: 'me', text: 'Sure!', time: '11:23 AM' },
@@ -20,8 +24,9 @@ const MESSAGES = [
   { id: 'm7', type: 'me', voice: true, duration: '0:53', time: '11:43 AM' },
 ];
 
-export default function ChatScreen({ route, navigation }) {
+export default function ChatScreen({ route }) {
   const { user } = route.params || {}; 
+  const navigation = useNavigation();
   const renderItem = ({ item }) => {
     if (item.voice) {
       return (
@@ -44,17 +49,18 @@ export default function ChatScreen({ route, navigation }) {
   };
 
   return (
-    <SafeAreaView style={styles.safe}>
+    <SafeAreaView edges={['top', 'left', 'right']} style={styles.safe}>
+      <StatusBar barStyle="dark-content" backgroundColor="#F5F5F7" />
       {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity><Text style={styles.icon}>‹</Text></TouchableOpacity>
+        <TouchableOpacity onPress={()=> navigation.goBack()}><Ionicons name="chevron-back" size={22} color="#111" /></TouchableOpacity>
         <Image source={{ uri: 'https://i.pravatar.cc/100?img=2' }} style={styles.headerAvatar} />
         <View style={{ flex: 1 }}>
           <Text style={styles.headerName}>Olivia Gallagher</Text>
           <Text style={styles.headerSub}>Active now</Text>
         </View>
-        <TouchableOpacity style={styles.iconBtn}><Text style={styles.icon}>📞</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.iconBtn}><Text style={styles.icon}>📹</Text></TouchableOpacity>
+        <TouchableOpacity onPress={()=> navigation.navigate('LiveCallScreen')} style={styles.iconBtn}><Text style={styles.icon}>📞</Text></TouchableOpacity>
+        <TouchableOpacity onPress={()=> navigation.navigate('LiveCallScreen')} style={styles.iconBtn}><Text style={styles.icon}>📹</Text></TouchableOpacity>
       </View>
 
       {/* Messages */}

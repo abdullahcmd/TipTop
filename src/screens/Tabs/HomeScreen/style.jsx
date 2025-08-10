@@ -1,0 +1,131 @@
+import { StyleSheet, StatusBar } from 'react-native';
+
+const styles = StyleSheet.create({
+    safe: {
+      flex: 1,
+      backgroundColor: '#111',
+    },
+    playerWrap: {
+      flex: 1,
+      // borderTopLeftRadius: 28,
+      // borderTopRightRadius: 28,
+      overflow: 'hidden',
+      // margin: 16,
+      // marginBottom: 74,
+      backgroundColor: '#000',
+    },
+    header: {
+      position: 'absolute',
+      top: 8 + (StatusBar.currentHeight || 0),
+      left: 0,
+      right: 0,
+      height: 44,
+      alignItems: 'center',
+      justifyContent: 'center',
+      flexDirection: 'row',
+    },
+    headerTitle: {
+      color: '#fff',
+      fontWeight: '700',
+      letterSpacing: 1,
+      fontSize: 16,
+    },
+    headerIcon: {
+      position: 'absolute',
+      right: 16,
+    },
+    rail: {
+      position: 'absolute',
+      right: 10,
+      bottom: 150,
+      alignItems: 'center',
+    },
+    railBtn: {
+      alignItems: 'center',
+      marginBottom: 18,
+    },
+    railCount: {
+      color: '#fff',
+      fontSize: 12,
+      marginTop: 4,
+      opacity: 0.9,
+    },
+    avatarWrap: {
+      width: 44,
+      height: 44,
+      borderRadius: 22,
+      overflow: 'hidden',
+      borderWidth: 2,
+      borderColor: '#fff',
+    },
+    avatar: {
+      width: '100%',
+      height: '100%',
+    },
+    followPlus: {
+      position: 'absolute',
+      bottom: -2,
+      right: -2,
+      width: 18,
+      height: 18,
+      borderRadius: 9,
+      backgroundColor: '#a855f7',
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderWidth: 2,
+      borderColor: '#000',
+    },
+    fab: {
+      position: 'absolute',
+      right: 22,
+      bottom: 96,
+      width: 48,
+      height: 48,
+      borderRadius: 24,
+      backgroundColor: '#ff4aa5',
+      alignItems: 'center',
+      justifyContent: 'center',
+      elevation: 4,
+    },
+    captionBlock: {
+      position: 'absolute',
+      left: 16,
+      right: 90,
+      bottom: 24,
+    },
+    user: {
+      color: '#fff',
+      fontWeight: '700',
+      fontSize: 14,
+      marginBottom: 4,
+    },
+    caption: {
+      color: '#f3f3f3',
+      fontSize: 13,
+      lineHeight: 18,
+      marginBottom: 8,
+    },
+    locationRow: {
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
+    location: {
+      color: '#7bc2ff',
+      marginLeft: 6,
+      fontSize: 13,
+    },
+    gradTop: {
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      top: 0,
+    },
+    gradBottom: {
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      bottom: 0,
+    },
+  
+  });
+  export default styles;

@@ -8,9 +8,13 @@ import OnboardingScreen from '../screens/onboardingScreen/onboardingScreen';
 import LoginInScreen from '../screens/LoginScreen/LoginScreen';
 import BottomNavigator from './BottonNavigation';
 import SettingScreenNavigation from './SettingScreenStack';
-import MessagesTabsScreen from '../screens/ChatScreens/ChatScreen';
+import ChatScreen from '../screens/ChatScreens/ChatScreen';
 import CallsScreen from '../screens/ChatScreens/CallsScreen';
-import ChatScreen from '../screens/ChatScreens/ChatList';
+import MessagesTabsScreen from '../screens/ChatScreens/ChatList';
+import UserScreen from '../screens/UserScreen';
+import EndLiveScreen from '../screens/EndLiveScreen';
+import LiveMatch from '../screens/LiveMatch';
+import LiveCallScreen from '../screens/LiveCallScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -32,7 +36,11 @@ const Navigation = () => {
         <Stack.Screen name="SettingScreen" component={SettingScreenNavigation} />
         <Stack.Screen name="Messages" component={MessagesTabsScreen} />
         <Stack.Screen name="Calls" component={CallsScreen} />
-        <Stack.Screen name="openChat" component={ChatScreen} />
+        <Stack.Screen name="ChatScreen" component={ChatScreen} />
+        <Stack.Screen name="UserScreen" component={UserScreen} />
+        <Stack.Screen name="EndLiveScreen" component={EndLiveScreen} />
+        <Stack.Screen name="LiveMatch" component={LiveMatch} />
+        <Stack.Screen name="LiveCallScreen" component={LiveCallScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

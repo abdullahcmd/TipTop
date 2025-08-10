@@ -134,8 +134,8 @@ const styles = StyleSheet.create({
   reject: {
     backgroundColor: '#4444',
     paddingHorizontal: wp('3.5%'),
-    paddingVertical: wp('1.2%'),
-    borderRadius: 8,
+    paddingVertical: wp('0.8%'),
+    borderRadius: 50,
   },
   rejectText: {
     color: '#fff',
@@ -144,8 +144,8 @@ const styles = StyleSheet.create({
   accept: {
     backgroundColor: '#fff',
     paddingHorizontal: wp('3.5%'),
-    paddingVertical: wp('1.2%'),
-    borderRadius: 8,
+    paddingVertical: wp('.8%'),
+    borderRadius: 50,
   },
   acceptText: {
     color: '#9333ea',
