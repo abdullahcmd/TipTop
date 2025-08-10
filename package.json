@@ -10,6 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "-": "^0.0.1",
     "@react-native/new-app-screen": "0.80.2",
     "@react-navigation/bottom-tabs": "^7.4.4",
     "@react-navigation/native": "^7.1.16",
@@ -25,6 +26,7 @@
     "react-native-screens": "^4.13.1",
     "react-native-svg": "^15.12.1",
     "react-native-vector-icons": "^10.3.0",
+    "react-native-video": "^6.16.1",
     "react-native-vision-camera": "^4.7.1",
     "yarn": "^1.22.22"
   },

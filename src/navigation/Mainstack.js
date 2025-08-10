@@ -8,6 +8,9 @@ import OnboardingScreen from '../screens/onboardingScreen/onboardingScreen';
 import LoginInScreen from '../screens/LoginScreen/LoginScreen';
 import BottomNavigator from './BottonNavigation';
 import SettingScreenNavigation from './SettingScreenStack';
+import MessagesTabsScreen from '../screens/ChatScreens/ChatScreen';
+import CallsScreen from '../screens/ChatScreens/CallsScreen';
+import ChatScreen from '../screens/ChatScreens/ChatList';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +30,9 @@ const Navigation = () => {
         <Stack.Screen name="Login" component={LoginInScreen} />
         <Stack.Screen name="Home" component={BottomNavigator} />
         <Stack.Screen name="SettingScreen" component={SettingScreenNavigation} />
+        <Stack.Screen name="Messages" component={MessagesTabsScreen} />
+        <Stack.Screen name="Calls" component={CallsScreen} />
+        <Stack.Screen name="openChat" component={ChatScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

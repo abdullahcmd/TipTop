@@ -2,8 +2,7 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/Tabs/HomeScreen';
-import SearchScreen from '../screens/Tabs/SearchScreen';
-import NewPostScreen from '../screens/Tabs/NewPostScreen';
+import MessagesTabsScreen from '../screens/ChatScreens/ChatList';
 import ProfileScreen from '../screens/Tabs/ProfileScreen';
 import CustomTabBar from '../screens/Tabs/CustomTabBar';
 import LiveStreamNavigation from './LiveScreenStack';
@@ -17,10 +16,9 @@ const BottomNavigator = () => {
       screenOptions={{ headerShown: false }}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Search" component={SearchScreen} />
-      <Tab.Screen name="Add" component={NewPostScreen} />
+      <Tab.Screen name="Messages" component={MessagesTabsScreen} />
       <Tab.Screen name="LiveStream" component={LiveStreamNavigation} />
-      <Tab.Screen name="AddBox" component={NewPostScreen} />
+      <Tab.Screen name="AddBox" component={MessagesTabsScreen} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
   );

@@ -10,6 +10,10 @@ import AddBoxIconFilled from '../../assets/svgs/Box.svg';
 import LiveIcon from '../../assets/svgs/LiveStreamSimple.svg';
 import LiveIconFilled from '../../assets/svgs/LiveStream.svg';
 import ProfileImage from '../../assets/svgs/ProfileImage.svg';
+import RequestsImage from '../../assets/svgs/requests.svg';
+import LiveImage from '../../assets/svgs/livetv.svg';
+import GridsImage from '../../assets/svgs/grids.svg';
+import AcountsImage from '../../assets/svgs/acounts.svg';
 import Icon from 'react-native-vector-icons/Feather';
 
 import {
@@ -21,31 +25,37 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
   const insets = useSafeAreaInsets();
 
   const getIcon = (name, isFocused) => {
-    const size = wp('6.5%');
+    const size = wp('10%');
     switch (name) {
       case 'Home':
         return isFocused ? (
-          <HomeIconFilled width={size} height={size} />
+          <HomeIconFilled width={wp('6%')} height={wp('6%')} />
         ) : (
-          <HomeIcon width={size} height={size} />
+          <HomeIcon width={wp('6%')} height={wp('6%')} />
         );
-      case 'Search':
+      case 'Messages':
         return isFocused ? (
-          <SearchIconFilled width={size} height={size} />
+          <GridsImage width={size} height={size} />
         ) : (
-          <SearchIcon width={size} height={size} />
+          <GridsImage width={size} height={size} />
         );
       case 'LiveStream':
         return isFocused ? (
-          <LiveIconFilled width={size} height={size} />
+          <LiveImage width={size} height={size} />
         ) : (
-          <LiveIcon width={size} height={size} />
+          <LiveImage width={size} height={size} />
+        );
+      case 'Profile':
+        return isFocused ? (
+          <AcountsImage width={size} height={size} />
+        ) : (
+          <AcountsImage width={size} height={size} />
         );
       case 'AddBox':
         return isFocused ? (
-          <AddBoxIconFilled width={size} height={size} />
+          <RequestsImage width={size} height={size} />
         ) : (
-          <AddBoxIcon width={size} height={size} />
+          <RequestsImage width={size} height={size} />
         );
       default:
         return null;
@@ -77,19 +87,19 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
         };
 
         // Center "Add" Button
-        if (route.name === 'Add') {
-          return (
-            <TouchableOpacity
-              key={route.key}
-              onPress={onPress}
-              style={styles.addButton}
-            >
-              <View style={styles.plusCircle}>
-                <Icon size={wp('5.5%')} color={'white'} name="plus" />
-              </View>
-            </TouchableOpacity>
-          );
-        }
+        // if (route.name === 'Add') {
+        //   return (
+        //     <TouchableOpacity
+        //       key={route.key}
+        //       onPress={onPress}
+        //       style={styles.addButton}
+        //     >
+        //       <View style={styles.plusCircle}>
+        //         <Icon size={wp('5.5%')} color={'white'} name="plus" />
+        //       </View>
+        //     </TouchableOpacity>
+        //   );
+        // }
 
         return (
           <TouchableOpacity
@@ -98,14 +108,12 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
             onPress={onPress}
             style={styles.tab}
           >
-            {route.name === 'Profile' ? (
-              <ProfileImage width={wp('7%')} height={wp('7%')} />
-            ) : (
+       
               <View style={styles.iconWrapper}>
                 {isFocused && <View style={styles.underline} />}
                 {getIcon(route.name, isFocused)}
               </View>
-            )}
+        
           </TouchableOpacity>
         );
       })}
