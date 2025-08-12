@@ -55,11 +55,7 @@ const ReelsScreen = () => {
 
   return (
     <View style={styles.rootContainer}>
-      <StatusBar
-        barStyle="light-content"
-        translucent
-        backgroundColor="transparent"
-      />
+      <StatusBar barStyle="light-content" />
       <View style={{ height: ITEM_HEIGHT }}>
         <FlatList
           data={dummyReels}

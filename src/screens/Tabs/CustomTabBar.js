@@ -41,7 +41,7 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
         ) : (
           <LiveIcon width={size} height={size} />
         );
-      case 'AddBox':
+      case 'Messeges':
         return isFocused ? (
           <ChatColored width={size} height={size} />
         ) : (

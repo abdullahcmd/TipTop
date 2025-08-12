@@ -15,11 +15,10 @@ const AppSafeAreaView = ({
   children,
   style,
   edges = ['top', 'bottom'],
-  statusBarProps = {
-    barStyle: 'dark-content',
-    backgroundColor: 'transparent',
-    translucent: true,
-  },
+  barStyle = 'dark-content',
+  backgroundColor = 'transparent',
+  translucent = true,
+
   enableKeyboardAvoid = true,
 }) => {
   const insets = useSafeAreaInsets();
@@ -27,8 +26,8 @@ const AppSafeAreaView = ({
   return (
     <SafeAreaView style={[styles.safeArea, style]} edges={edges}>
       <StatusBar
-        barStyle={statusBarProps.barStyle}
-        backgroundColor={statusBarProps.backgroundColor}
+        barStyle={barStyle}
+        backgroundColor={backgroundColor}
         translucent
       />
 

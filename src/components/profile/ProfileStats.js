@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   SafeAreaView,
   Platform,
+  StatusBar,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Feather';
@@ -15,6 +16,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import { useNavigation } from '@react-navigation/native';
+import Settings from '../../assets/svgs/IconSetting.svg';
 
 const ProfileHeader = () => {
   const navigation = useNavigation();
@@ -31,16 +33,14 @@ const ProfileHeader = () => {
           paddingTop: hp('3%'),
         }}
       >
+        <StatusBar barStyle={'light-content'} />
         {/* Top Navigation */}
         <View style={{ paddingBottom: hp(6) }}>
           <View style={styles.navRow}>
-            <TouchableOpacity>
-              <Icon name="arrow-left" size={wp('5.2%')} color="#fff" />
-            </TouchableOpacity>
             <TouchableOpacity
               onPress={() => navigation.navigate('SettingScreen')}
             >
-              <Icon name="more-horizontal" size={wp('5.2%')} color="#fff" />
+              <Settings />
             </TouchableOpacity>
           </View>
 
@@ -93,8 +93,8 @@ const styles = StyleSheet.create({
   navRow: {
     flexDirection: 'row',
     paddingHorizontal: wp('5%'),
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end',
   },
   profileRow: {
     flexDirection: 'row',
@@ -133,13 +133,15 @@ const styles = StyleSheet.create({
     fontSize: wp('3.5%'),
   },
   followBtn: {
-    backgroundColor: '#fff',
+    backgroundColor: 'rgba(255, 253, 253, 0.5)',
     paddingVertical: hp('0.7%'),
+    borderWidth: 1,
+    borderColor: 'white',
     paddingHorizontal: wp('4%'),
-    borderRadius: 4,
+    borderRadius: 20,
   },
   followText: {
-    color: '#000',
+    color: '#FFFFFF',
     fontSize: wp('3.5%'),
     fontWeight: '500',
   },
