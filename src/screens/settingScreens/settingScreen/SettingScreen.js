@@ -29,151 +29,152 @@ import PrimaryColors from '../../../constants/colors';
 const svgColor = '#374151';
 
 const SettingScreen = ({ navigation }) => {
-  const [showFollowings, setShowFollowings] = useState(true);
-  const [showChatButton, setShowChatButton] = useState(false);
+  
+    const [showFollowings, setShowFollowings] = useState(true);
+    const [showChatButton, setShowChatButton] = useState(false);
 
-  const handleBackPress = () => {
-    navigation.goBack();
-  };
+    const handleBackPress = () => {
+        navigation.goBack();
+    };
 
-  const handleSavedPosts = () => {
-    navigation.navigate('AccountSettingScreen');
-  };
+    const handleSavedPosts = () => {
+        navigation.navigate('SavedPosts');
+    };
 
-  const handleLanguages = () => {
-    // Navigate to languages screen
-  };
+    const handleLanguages = () => {
+        navigation.navigate('SubscriptionScreen');
+    };
 
-  const handleBlockedUsers = () => {
-    navigation.navigate('BlockedUsersScreen');
-    // Navigate to blocked users screen
-  };
+    const handleBlockedUsers = () => {
+        navigation.navigate('BlockedUsers');
+    };
 
-  const handleQRCode = () => {
-    navigation.navigate('MyQRCode');
-  };
+    const handleQRCode = () => {
+        navigation.navigate('MyQRCode');
+    };
 
-  const handleCoinWallet = () => {
-    // Navigate to coin wallet screen
-  };
+    const handleCoinWallet = () => {
+        // Navigate to coin wallet screen
+    };
 
-  const handleWhoCanSeePosts = () => {
-    // Show dropdown for post visibility
-  };
+    const handleWhoCanSeePosts = () => {
+        // Show dropdown for post visibility
+    };
 
-  const handleNotifications = () => {
-    navigation.navigate('NotificationsScreen');
-    // Navigate to notifications screen
-  };
+    const handleNotifications = () => {
+        navigation.navigate('NotificationScreen');
+    };
 
-  // Array for account settings items
-  const accountSettingsItems = [
-    {
-      icon: <SettingIcon width={24} height={24} color={svgColor} />,
-      title: 'Account Settings',
-      onPress: handleSavedPosts,
-      showArrow: true,
-    },
-    {
-      icon: <SaveIcon width={24} height={24} color={svgColor} />,
-      title: 'Saved Posts',
-      onPress: handleSavedPosts,
-      showArrow: true,
-    },
-    {
-      icon: <LanguageIcon width={24} height={24} color={svgColor} />,
-      title: 'Languages',
-      onPress: handleLanguages,
-      showArrow: true,
-    },
-    {
-      icon: <BlockUserIcon width={24} height={24} color={svgColor} />,
-      title: 'Blocked Users',
-      onPress: handleBlockedUsers,
-      showArrow: true,
-    },
-    {
-      icon: <QRCodeIcon width={24} height={24} color={svgColor} />,
-      title: 'My QR Code',
-      onPress: handleQRCode,
-      showArrow: true,
-    },
-    {
-      icon: <CoinWalletIcon width={24} height={24} color={svgColor} />,
-      title: 'Coin Wallet',
-      onPress: handleCoinWallet,
-      showArrow: true,
-    },
-  ];
+    // Array for account settings items
+    const accountSettingsItems = [
+        {
+            icon: <SettingIcon width={24} height={24} color={svgColor} />,
+            title: "Account Settings",
+            onPress: () => navigation.navigate('AccountSettingScreen'),
+            showArrow: true,
+        },
+        {
+            icon: <SaveIcon width={24} height={24} color={svgColor} />,
+            title: "Saved Posts",
+            onPress: handleSavedPosts,
+            showArrow: true,
+        },
+        {
+            icon: <LanguageIcon width={24} height={24} color={svgColor} />,
+            title: "Languages",
+            onPress: handleLanguages,
+            showArrow: true,
+        },
+        {
+            icon: <BlockUserIcon width={24} height={24} color={svgColor} />,
+            title: "Blocked Users",
+            onPress: handleBlockedUsers,
+            showArrow: true,
+        },
+        {
+            icon: <QRCodeIcon width={24} height={24} color={svgColor} />,
+            title: "My QR Code",
+            onPress: handleQRCode,
+            showArrow: true,
+        },
+        {
+            icon: <CoinWalletIcon width={24} height={24} color={svgColor} />,
+            title: "Coin Wallet",
+            onPress: handleCoinWallet,
+            showArrow: true,
+        },
+    ];
 
-  return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="dark-content" backgroundColor="white" />
+    return (
+        <SafeAreaView style={styles.container}>
+            <StatusBar barStyle="dark-content" backgroundColor="white" />
 
-      {/* Header */}
-      <View style={styles.header}>
-        <TouchableOpacity onPress={handleBackPress} style={styles.backButton}>
-          <Icon name="arrow-back" size={wp('6%')} color="#333" />
-        </TouchableOpacity>
-        <Text style={styles.headerTitle}>Settings</Text>
-        <View style={styles.headerSpacer} />
-      </View>
+            {/* Header */}
+            <View style={styles.header}>
+                <TouchableOpacity onPress={handleBackPress} style={styles.backButton}>
+                    <Icon name="arrow-back" size={wp('6%')} color="#333" />
+                </TouchableOpacity>
+                <Text style={styles.headerTitle}>Settings</Text>
+                <View style={styles.headerSpacer} />
+            </View>
 
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-        <View style={styles.content}>
-          {/* Account Section */}
-          <SettingsSection title="Account">
-            {accountSettingsItems.map((item, idx) => (
-              <SettingsItem
-                key={item.title}
-                icon={item.icon}
-                title={item.title}
-                onPress={item.onPress}
-                showArrow={item.showArrow}
-              />
-            ))}
-          </SettingsSection>
+            <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
 
-          {/* Privacy Section */}
-          <SettingsSection title="Privacy">
-            <SettingsItem
-              icon={<EyeIcon width={24} height={24} color={svgColor} />}
-              title="Who Can See Posts"
-              onPress={handleWhoCanSeePosts}
-              showDropdown={true}
-              dropdownValue="Followers Only"
-              showArrow={true}
-            />
-            <SettingsItem
-              icon={<PeopleIcon width={24} height={24} color={svgColor} />}
-              title="Show My Followings"
-              showToggle={true}
-              toggleValue={showFollowings}
-              onToggleChange={setShowFollowings}
-              switchActiveColor={'#C084FC'}
-              switchInactiveColor="#E5E7EB"
-            />
-            <SettingsItem
-              icon={<MessageIcon width={24} height={24} color={svgColor} />}
-              title="Show Chat Button"
-              showToggle={true}
-              toggleValue={showChatButton}
-              onToggleChange={setShowChatButton}
-              switchActiveColor={'#C084FC'}
-              switchInactiveColor="#E5E7EB"
-            />
-            <SettingsItem
-              icon={<BellIcon width={24} height={24} color={svgColor} />}
-              title="Notifications"
-              onPress={handleNotifications}
-              showArrow={true}
-            />
-          </SettingsSection>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
+                <View style={styles.content}>
+                    {/* Account Section */}
+                    <SettingsSection title="Account">
+                        {accountSettingsItems.map((item, idx) => (
+                            <SettingsItem
+                                key={item.title}
+                                icon={item.icon}
+                                title={item.title}
+                                onPress={item.onPress}
+                                showArrow={item.showArrow}
+                            />
+                        ))}
+                    </SettingsSection>
+
+                    {/* Privacy Section */}
+                    <SettingsSection title="Privacy">
+                        <SettingsItem
+                            icon={<EyeIcon width={24} height={24} color={svgColor} />}
+                            title="Who Can See Posts"
+                            onPress={handleWhoCanSeePosts}
+                            showDropdown={true}
+                            dropdownValue="Followers Only"
+                            showArrow={true}
+                        />
+                        <SettingsItem
+                            icon={<PeopleIcon width={24} height={24} color={svgColor} />}
+                            title="Show My Followings"
+                            showToggle={true}
+                            toggleValue={showFollowings}
+                            onToggleChange={setShowFollowings}
+                            switchActiveColor={'#C084FC'}
+                            switchInactiveColor="#E5E7EB"
+                        />
+                        <SettingsItem
+                            icon={<MessageIcon width={24} height={24} color={svgColor} />}
+                            title="Show Chat Button"
+                            showToggle={true}
+                            toggleValue={showChatButton}
+                            onToggleChange={setShowChatButton}
+                            switchActiveColor={'#C084FC'}
+                            switchInactiveColor="#E5E7EB"
+                        />
+                        <SettingsItem
+                            icon={<BellIcon width={24} height={24} color={svgColor} />}
+                            title="Notifications"
+                            onPress={handleNotifications}
+                            showArrow={true}
+                        />
+                    </SettingsSection>
+                </View>
+            </ScrollView>
+        </SafeAreaView>
+    );
 };
+
 
 export default SettingScreen;
 
