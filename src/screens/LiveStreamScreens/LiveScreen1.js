@@ -6,7 +6,7 @@ import {
   ImageBackground,
   TouchableOpacity,
 } from 'react-native';
-import RoundButton from '../../components/LiveScreenButtons/ReusableCentreIconButton';
+import RoundButton from '../../components/LiveStreamComponents/ReusableCentreIconButton';
 import Camera from '../../assets/svgs/Camera.svg';
 import ContinueButton from '../../components/button/button1';
 import PrimaryColors from '../../constants/colors';
@@ -59,6 +59,18 @@ const LiveScreen = () => {
             fontSize: wp('4%'),
           }}
           buttonStyle={styles.startBtn}
+        />
+        <ContinueButton
+          onPress={() => {
+            navigation.navigate('LiveStreamBattle');
+          }}
+          title="See Battle"
+          secondStyle={{
+            color: PrimaryColors.PurpleText,
+            fontWeight: '600',
+            fontSize: wp('4%'),
+          }}
+          buttonStyle={[styles.startBtn, { marginTop: 0 }]}
         />
       </View>
     </ImageBackground>

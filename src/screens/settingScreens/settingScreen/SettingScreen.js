@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import {
-    StyleSheet,
-    Text,
-    View,
-    TouchableOpacity,
-    ScrollView,
-    StatusBar,
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  ScrollView,
+  StatusBar,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 import { SettingsSection, SettingsItem } from '../../../components';
 import SaveIcon from '../../../assets/svgs/save.svg';
 import LanguageIcon from '../../../assets/svgs/language.svg';
@@ -23,9 +26,10 @@ import MessageIcon from '../../../assets/svgs/message.svg';
 import BellIcon from '../../../assets/svgs/bell.svg';
 import PrimaryColors from '../../../constants/colors';
 
-const svgColor = "#374151";
+const svgColor = '#374151';
 
 const SettingScreen = ({ navigation }) => {
+  
     const [showFollowings, setShowFollowings] = useState(true);
     const [showChatButton, setShowChatButton] = useState(false);
 
@@ -171,35 +175,35 @@ const SettingScreen = ({ navigation }) => {
     );
 };
 
+
 export default SettingScreen;
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "#fff",
-    },
-    header: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        paddingHorizontal: wp('5%'),
-        paddingVertical: hp('2%'),
-    },
-    backButton: {
-        padding: wp('1%'),
-    },
-    headerTitle: {
-        fontSize: wp('5.5%'),
-        color: '#333',
-        marginLeft: wp('5%'),
-        fontFamily: 'Benzin-Bold',
-        fontWeight: '800',
-    },
-    headerSpacer: {
-        width: wp('8%'),
-    },
-    content: {
-        flex: 1,
-        paddingTop: hp('2.5%'),
-        paddingHorizontal: wp('5%'),
-    },
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: wp('5%'),
+    paddingVertical: hp('2%'),
+  },
+  backButton: {
+    padding: wp('1%'),
+  },
+  headerTitle: {
+    fontSize: wp('5.5%'),
+    color: '#333',
+    marginLeft: wp('5%'),
+    fontWeight: '800',
+  },
+  headerSpacer: {
+    width: wp('8%'),
+  },
+  content: {
+    flex: 1,
+    paddingTop: hp('2.5%'),
+    paddingHorizontal: wp('5%'),
+  },
 });

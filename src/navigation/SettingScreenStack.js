@@ -5,6 +5,7 @@ import SettingScreen from '../screens/settingScreens/settingScreen/SettingScreen
 import AccountSettingScreen from '../screens/settingScreens/accountSettingScreen/AccountSettingScreen';
 import MyQRCode from '../screens/settingScreens/myQRCodeScreen/MyQRCode';
 import ScanQRCode from '../screens/settingScreens/scanQRCode/ScanQRCode';
+
 import BlockedUsersScreen from '../screens/settingScreens/blockedUsersScreen/BlockedUsers';
 import SubscriptionScreen from '../screens/settingScreens/SubscriptionScreen/SubscriptionScreen';
 import SavedPostsScreen from '../screens/settingScreens/SavedPostsScreen/SavedPostsScreen';
@@ -13,6 +14,7 @@ import NotificationScreen from '../screens/settingScreens/notificationScreen/Not
 const Stack = createNativeStackNavigator();
 
 const SettingScreenNavigation = () => {
+
     return (
         <Stack.Navigator
             initialRouteName="SettingScreen"
@@ -28,6 +30,7 @@ const SettingScreenNavigation = () => {
             <Stack.Screen name="NotificationScreen" component={NotificationScreen} />
         </Stack.Navigator>
     );
+
 };
 
 export default SettingScreenNavigation;

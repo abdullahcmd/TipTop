@@ -17,7 +17,6 @@ import {
 import { useNavigation } from '@react-navigation/native';
 
 const ProfileHeader = () => {
-
   const navigation = useNavigation();
 
   return (
@@ -27,51 +26,59 @@ const ProfileHeader = () => {
       end={{ x: 1, y: 1 }}
       style={styles.gradient}
     >
-      <SafeAreaView style={{ paddingTop: hp('1%') }}>
+      <SafeAreaView
+        style={{
+          paddingTop: hp('3%'),
+        }}
+      >
         {/* Top Navigation */}
-        <View style={styles.navRow}>
-          <TouchableOpacity>
-            <Icon name="arrow-left" size={wp('5.2%')} color="#fff" />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('SettingScreen')}>
-            <Icon name="more-horizontal" size={wp('5.2%')} color="#fff" />
-          </TouchableOpacity>
-        </View>
+        <View style={{ paddingBottom: hp(6) }}>
+          <View style={styles.navRow}>
+            <TouchableOpacity>
+              <Icon name="arrow-left" size={wp('5.2%')} color="#fff" />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('SettingScreen')}
+            >
+              <Icon name="more-horizontal" size={wp('5.2%')} color="#fff" />
+            </TouchableOpacity>
+          </View>
 
-        {/* Profile Info Row */}
-        <View style={styles.profileRow}>
-          <Image
-            source={require('../../assets/images/ProfileImage.png')}
-            style={styles.avatar}
-          />
-          <View style={styles.infoBlock}>
-            <Text style={styles.name}>Rose Madison</Text>
-            <Text style={styles.title}>Fashion Model</Text>
-            <View style={styles.locationRow}>
-              <Icon name="map-pin" size={wp('3.2%')} color="white" />
-              <Text style={styles.location}>London, United Kingdom</Text>
+          {/* Profile Info Row */}
+          <View style={styles.profileRow}>
+            <Image
+              source={require('../../assets/images/ProfileImage.png')}
+              style={styles.avatar}
+            />
+            <View style={styles.infoBlock}>
+              <Text style={styles.name}>Rose Madison</Text>
+              <Text style={styles.title}>Fashion Model</Text>
+              <View style={styles.locationRow}>
+                <Icon name="map-pin" size={wp('3.2%')} color="white" />
+                <Text style={styles.location}>London, United Kingdom</Text>
+              </View>
             </View>
+            <TouchableOpacity style={styles.followBtn}>
+              <Text style={styles.followText}>Follow</Text>
+            </TouchableOpacity>
           </View>
-          <TouchableOpacity style={styles.followBtn}>
-            <Text style={styles.followText}>Follow</Text>
-          </TouchableOpacity>
-        </View>
 
-        {/* Stats Row */}
-        <View style={styles.statsRow}>
-          <View style={styles.statBlock}>
-            <Text style={styles.statValue}>736</Text>
-            <Text style={styles.statLabel}>Friends</Text>
-          </View>
-          <View style={styles.divider} />
-          <View style={styles.statBlock}>
-            <Text style={styles.statValue}>92</Text>
-            <Text style={styles.statLabel}>Followers</Text>
-          </View>
-          <View style={styles.divider} />
-          <View style={styles.statBlock}>
-            <Text style={styles.statValue}>34</Text>
-            <Text style={styles.statLabel}>Following</Text>
+          {/* Stats Row */}
+          <View style={styles.statsRow}>
+            <View style={styles.statBlock}>
+              <Text style={styles.statValue}>736</Text>
+              <Text style={styles.statLabel}>Friends</Text>
+            </View>
+            <View style={styles.divider} />
+            <View style={styles.statBlock}>
+              <Text style={styles.statValue}>92</Text>
+              <Text style={styles.statLabel}>Followers</Text>
+            </View>
+            <View style={styles.divider} />
+            <View style={styles.statBlock}>
+              <Text style={styles.statValue}>34</Text>
+              <Text style={styles.statLabel}>Following</Text>
+            </View>
           </View>
         </View>
       </SafeAreaView>
@@ -81,8 +88,6 @@ const ProfileHeader = () => {
 
 const styles = StyleSheet.create({
   gradient: {
-    width: '100%',
-    height: hp('40%'),
     paddingTop: Platform.OS === 'android' ? hp('3.5%') : 0,
   },
   navRow: {

@@ -6,7 +6,7 @@ import SearchScreen from '../screens/Tabs/SearchScreen';
 import NewPostScreen from '../screens/Tabs/NewPostScreen';
 import ProfileScreen from '../screens/Tabs/ProfileScreen';
 import CustomTabBar from '../screens/Tabs/CustomTabBar';
-import LiveStreamNavigation from './LiveScreenStack';
+import LiveStreamNavigation from './LiveStreamStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -18,7 +18,6 @@ const BottomNavigator = () => {
     >
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Search" component={SearchScreen} />
-      <Tab.Screen name="Add" component={NewPostScreen} />
       <Tab.Screen name="LiveStream" component={LiveStreamNavigation} />
       <Tab.Screen name="AddBox" component={NewPostScreen} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
