@@ -71,7 +71,12 @@ const LoginInScreen = () => {
             <ContinueButton title="Log In" onPress={handleLogin} />
           </View>
 
-          <TouchableOpacity style={styles.createAccount}>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('Signup');
+            }}
+            style={styles.createAccount}
+          >
             <Text style={styles.createAccountText}>Create account here</Text>
           </TouchableOpacity>
 
@@ -127,7 +132,7 @@ const styles = StyleSheet.create({
   },
   createAccount: {
     backgroundColor: '#8988D9',
-    paddingVertical: hp('3.5%'),
+    paddingVertical: hp('3%'),
     width: '100%',
   },
   createAccountText: {

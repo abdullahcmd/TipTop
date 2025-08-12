@@ -8,6 +8,7 @@ import OnboardingScreen from '../screens/onboardingScreen/onboardingScreen';
 import LoginInScreen from '../screens/LoginScreen/LoginScreen';
 import BottomNavigator from './BottonNavigation';
 import SettingScreenNavigation from './SettingScreenStack';
+import SignUpScreen from '../screens/SignUpSCreen/Index';
 
 const Stack = createNativeStackNavigator();
 
@@ -25,8 +26,12 @@ const Navigation = () => {
         />
         <Stack.Screen name="Onboarding" component={OnboardingScreen} />
         <Stack.Screen name="Login" component={LoginInScreen} />
+        <Stack.Screen name="Signup" component={SignUpScreen} />
         <Stack.Screen name="Home" component={BottomNavigator} />
-        <Stack.Screen name="SettingScreen" component={SettingScreenNavigation} />
+        <Stack.Screen
+          name="SettingScreen"
+          component={SettingScreenNavigation}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
