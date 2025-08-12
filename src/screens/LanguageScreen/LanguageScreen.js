@@ -22,10 +22,10 @@ const languages = [
   { native: 'dansk', english: 'Danish' },
   { native: 'हिंदी', english: 'Hindi' },
   { native: 'bahasha Indonesia', english: 'Indonesian' },
-  { native: 'عربي', english: 'Arabic' },
-  { native: 'عربي', english: 'Arabic' },
-  { native: 'عربي', english: 'Arabic' },
-  { native: 'عربي', english: 'Arabic' },
+  { native: 'français', english: 'French' },
+  { native: 'español', english: 'Spanish' },
+  { native: 'русский', english: 'Russian' },
+  { native: '中文', english: 'Chinese' },
 ];
 
 const LanguageSelectionScreen = () => {

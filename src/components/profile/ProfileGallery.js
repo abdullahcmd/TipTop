@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: wp('4%'),
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
-    marginTop: -hp('5%'),
+    marginTop: -hp('2%'),
     backgroundColor: '#fff',
     flex: 1,
     paddingTop: hp('2%'),
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
   },
   tab: {
     flex: 1,
-    height: hp('5.5%'),
+    height: hp('5%'),
   },
   tabInner: {
     flex: 1,
@@ -145,7 +145,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 16,
+    borderTopLeftRadius: 16,
+    borderBottomLeftRadius: 16,
   },
   inactiveTabBackground: {
     flex: 1,

@@ -2,18 +2,27 @@
 import React from 'react';
 import { View, TextInput, StyleSheet, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 const SearchPageHeader = () => {
   return (
     <View style={styles.header}>
       <View style={styles.inputContainer}>
-        <Icon name="search" size={18} color="#888" style={styles.searchIcon} />
+        <Icon
+          name="search"
+          size={wp('4.5%')}
+          color="#888"
+          style={styles.searchIcon}
+        />
         <TextInput
           placeholder="Search"
           placeholderTextColor="#888"
           style={styles.input}
         />
-        <Icon name="close" size={18} color="#bbb" />
+        <Icon name="close" size={wp('4.5%')} color="#bbb" />
       </View>
       <Text style={styles.cancel}>Cancel</Text>
     </View>
@@ -23,29 +32,31 @@ const SearchPageHeader = () => {
 const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
-    padding: 12,
+    paddingHorizontal: wp('4%'),
+    paddingVertical: hp('1.5%'),
     alignItems: 'center',
   },
   inputContainer: {
     flex: 1,
-    backgroundColor: '#f2f2f2',
-    borderRadius: 12,
-    paddingHorizontal: 10,
-    paddingVertical: 8,
+    backgroundColor: '#EFEFF4',
+    borderRadius: wp('2%'),
+    paddingHorizontal: wp('3%'),
+    paddingVertical: wp('0.9%'),
     flexDirection: 'row',
     alignItems: 'center',
-    marginRight: 8,
+    marginRight: wp('2.5%'),
   },
   searchIcon: {
-    marginRight: 6,
+    marginRight: wp('2%'),
   },
   input: {
     flex: 1,
-    fontSize: 14,
+    fontSize: wp('4.5%'),
     color: '#000',
+    paddingVertical: wp('0.9%'),
   },
   cancel: {
-    fontSize: 16,
+    fontSize: wp('4.5%'),
     color: '#000',
   },
 });

@@ -14,6 +14,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import Logo from '../../assets/svgs/Logo.svg';
 
 const SplashScreen = () => {
   const navigation = useNavigation();
@@ -60,7 +61,7 @@ const SplashScreen = () => {
         backgroundColor="transparent"
       />
 
-      <Animated.Text
+      <Animated.View
         style={[
           styles.title,
           {
@@ -69,8 +70,8 @@ const SplashScreen = () => {
           },
         ]}
       >
-        Tip Top
-      </Animated.Text>
+        <Logo />
+      </Animated.View>
     </LinearGradient>
   );
 };
