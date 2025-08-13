@@ -15,6 +15,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import { useNavigation } from '@react-navigation/native';
+import AppSafeAreaView from '../../components/General/SafeAreaView/SafeAreaView';
 
 const LiveScreen = () => {
   const [restrictJoin, setRestrictJoin] = useState(true);
@@ -23,13 +24,9 @@ const LiveScreen = () => {
     <ImageBackground
       source={require('../../assets/images/LiveScreen.png')}
       style={styles.container}
-      imageStyle={{ borderRadius: 24 }}
+      imageStyle={{ resizeMode: 'cover' }}
     >
       <View style={styles.overlayContent}>
-        <RoundButton>
-          <Camera />
-        </RoundButton>
-
         <View style={styles.textBox}>
           <Text style={styles.description}>
             Showing my new hot outfits by wearing them, come on ! 🔥🔥🎉
@@ -60,18 +57,6 @@ const LiveScreen = () => {
           }}
           buttonStyle={styles.startBtn}
         />
-        <ContinueButton
-          onPress={() => {
-            navigation.navigate('LiveStreamBattle');
-          }}
-          title="See Battle"
-          secondStyle={{
-            color: PrimaryColors.PurpleText,
-            fontWeight: '600',
-            fontSize: wp('4%'),
-          }}
-          buttonStyle={[styles.startBtn, { marginTop: 0 }]}
-        />
       </View>
     </ImageBackground>
   );
@@ -82,12 +67,14 @@ export default LiveScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    overflow: 'hidden',
+    width: '100%',
+    height: '100%',
+
     justifyContent: 'flex-end',
   },
   overlayContent: {
     alignItems: 'center',
-    paddingBottom: hp('5%'),
+    // paddingBottom: hp('5%'),
     paddingHorizontal: wp('5%'),
   },
   textBox: {

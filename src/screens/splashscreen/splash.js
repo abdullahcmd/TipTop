@@ -14,7 +14,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import Logo from '../../assets/svgs/Logo.svg';
+import Logo from '../../assets/svgs/Splash_Screen_Logo.svg';
 
 const SplashScreen = () => {
   const navigation = useNavigation();

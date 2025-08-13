@@ -1,50 +1,68 @@
-import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
-import Heart from '../../assets/svgs/Heart.svg';
+import React, { useState } from 'react';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import HeartOutline from '../../assets/svgs/OutlinedHeart.svg';
+import HeartFilled from '../../assets/svgs/HeartFilled.svg';
 import Comment from '../../assets/svgs/Comments.svg';
 import Share from '../../assets/svgs/Share.svg';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
-const ReelActions = ({ likes, comments, shares, profile }) => (
-  <View style={styles.container}>
-    <Image source={{ uri: profile }} style={styles.avatar} />
-    <View style={styles.iconBlock}>
-      <Heart width={28} height={28} />
-      <Text style={styles.text}>{likes}K</Text>
+const ReelActions = ({ likes, comments, shares, profile }) => {
+  const [isLiked, setIsLiked] = useState(false);
+
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity>
+        <Image source={{ uri: profile }} style={styles.avatar} />
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.iconBlock}
+        onPress={() => setIsLiked(!isLiked)}
+      >
+        {isLiked ? (
+          <HeartFilled width={wp('7%')} height={hp('3%')} /> // Filled heart icon
+        ) : (
+          <HeartOutline width={wp('7%')} height={hp('3%')} /> // Outlined heart icon
+        )}
+        <Text style={styles.text}>{likes}K</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.iconBlock}>
+        <Comment width={wp('7%')} height={hp('3%')} />
+        <Text style={styles.text}>{comments}</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.iconBlock}>
+        <Share width={wp('7%')} height={hp('3%')} />
+        <Text style={styles.text}>{shares}K</Text>
+      </TouchableOpacity>
     </View>
-    <View style={styles.iconBlock}>
-      <Comment width={28} height={28} />
-      <Text style={styles.text}>{comments}</Text>
-    </View>
-    <View style={styles.iconBlock}>
-      <Share width={28} height={28} />
-      <Text style={styles.text}>{shares}K</Text>
-    </View>
-  </View>
-);
+  );
+};
 
 export default ReelActions;
 
 const styles = StyleSheet.create({
   container: {
     position: 'absolute',
-    right: 14,
-    bottom: 100,
+    right: wp('4%'), // Make position responsive
+    bottom: hp('10%'), // Make position responsive
     alignItems: 'center',
-    gap: 20,
+    gap: hp('2%'), // Adjust the gap for responsiveness
   },
   avatar: {
-    width: 42,
-    height: 42,
-    borderRadius: 21,
+    width: wp('10%'), // Make avatar size responsive
+    height: wp('10%'),
+    borderRadius: wp('5%'),
     borderWidth: 1.5,
     borderColor: '#fff',
   },
   iconBlock: {
     alignItems: 'center',
-    gap: 4,
+    gap: hp('1%'), // Adjust the gap for responsiveness
   },
   text: {
     color: '#fff',
-    fontSize: 13,
+    fontSize: wp('3.5%'), // Make font size responsive
   },
 });
