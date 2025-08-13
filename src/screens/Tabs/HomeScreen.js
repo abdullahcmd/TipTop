@@ -10,7 +10,7 @@ import {
 import ReelVideoPlayer from '../../components/HomePage/ReelPlayer';
 
 const { height } = Dimensions.get('window');
-const ITEM_HEIGHT = height * 0.912;
+const ITEM_HEIGHT = height * 0.9;
 
 const dummyReels = [
   {
