@@ -53,6 +53,7 @@ const SettingScreen = ({ navigation }) => {
   };
 
   const handleCoinWallet = () => {
+    navigation.navigate('CoinWallet');
     // Navigate to coin wallet screen
   };
 

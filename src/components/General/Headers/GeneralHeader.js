@@ -8,6 +8,8 @@ const Header = ({
   showBack = true,
   title = 'Scan QR Code',
   rightElement = null,
+  styleText,
+  color = '#000',
 }) => {
   const navigation = useNavigation();
 
@@ -16,15 +18,15 @@ const Header = ({
       {showBack ? (
         <TouchableOpacity
           onPress={() => navigation.goBack()}
-          style={styles.backButton}
+          style={[styles.backButton]}
         >
-          <Icon name="arrow-back" size={wp('6%')} color="#000" />
+          <Icon name="arrow-back" size={wp('6%')} color={color} />
         </TouchableOpacity>
       ) : (
         <View style={styles.backButton} />
       )}
 
-      <Text style={styles.headerTitle}>{title}</Text>
+      <Text style={[styles.headerTitle, styleText]}>{title}</Text>
 
       <View style={styles.rightElementWrapper}>{rightElement}</View>
     </View>
