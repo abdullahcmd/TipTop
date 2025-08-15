@@ -10,6 +10,7 @@ import SubscriptionScreen from '../screens/settingScreens/SubscriptionScreen/Sub
 import SavedPostsScreen from '../screens/settingScreens/SavedPostsScreen/SavedPostsScreen';
 import NotificationScreen from '../screens/settingScreens/Notifications_Screen/Notifications_Screen';
 import NotificationSettingsScreen from '../screens/settingScreens/Notifications_Screen/Notifications_Screen';
+import CoinWalletScreen from '../screens/settingScreens/WalletScreens/WalletScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +27,7 @@ const SettingScreenNavigation = () => {
       />
       <Stack.Screen name="MyQRCode" component={MyQRCode} />
       <Stack.Screen name="ScanQRCode" component={ScanQRCode} />
+      <Stack.Screen name="CoinWallet" component={CoinWalletScreen} />
       <Stack.Screen name="BlockedUsers" component={BlockedUsersScreen} />
       <Stack.Screen name="SubscriptionScreen" component={SubscriptionScreen} />
       <Stack.Screen name="SavedPosts" component={SavedPostsScreen} />
