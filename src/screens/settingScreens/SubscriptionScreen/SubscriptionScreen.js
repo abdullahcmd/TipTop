@@ -7,13 +7,12 @@ import {
   Image,
   ScrollView,
 } from 'react-native';
-import SubscriptionOption from '../../../components/SubscriptionOption/SubscriptionOption';
+import SubscriptionOption from '../../../components/Subscription/SubscriptionOption/SubscriptionOption';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import { icons } from '../../../constants/icons';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import AppSafeAreaView from '../../../components/General/SafeAreaView/SafeAreaView';
 import Header from '../../../components/General/Headers/GeneralHeader';
 

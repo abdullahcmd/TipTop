@@ -3,11 +3,11 @@ import { View, Dimensions, StyleSheet, ActivityIndicator } from 'react-native';
 import Video from 'react-native-video';
 import ReelActions from './ReelAction';
 import ReelFooter from './ReelFooter';
-
-const { height, width } = Dimensions.get('window');
+import { useNavigation } from '@react-navigation/native';
 
 const ReelVideoPlayer = ({ reel, isVisible }) => {
   const videoRef = useRef(null);
+  const navigation = useNavigation();
   const [isLoading, setIsLoading] = useState(true);
 
   return (
@@ -39,6 +39,8 @@ const ReelVideoPlayer = ({ reel, isVisible }) => {
 
       {/* Overlay UI */}
       <ReelActions
+        onPressComments={() => navigation.navigate('Comments')}
+        onPressShare={() => navigation.navigate('Feed')}
         profile={reel.user.avatar}
         likes={reel.likes}
         comments={reel.comments}

@@ -11,6 +11,8 @@ import SettingScreenNavigation from './SettingScreenStack';
 import SignUpScreen from '../screens/SignUpSCreen/Index';
 import ForgotPassScreen from '../screens/ForgotPasswordScreen/ForgotPassScreen';
 import ForgotPassScreen2 from '../screens/ForgotPasswordScreen/ForgotPass2';
+import CommentsScreen from '../screens/CommentsScreen/CommentScreen';
+import FeedScreen from '../screens/FeedScreen/FeedScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,9 +32,10 @@ const Navigation = () => {
         <Stack.Screen name="Login" component={LoginInScreen} />
         <Stack.Screen name="ForgotPass" component={ForgotPassScreen} />
         <Stack.Screen name="ForgotPass2" component={ForgotPassScreen2} />
-
         <Stack.Screen name="Signup" component={SignUpScreen} />
         <Stack.Screen name="Home" component={BottomNavigator} />
+        <Stack.Screen name="Feed" component={FeedScreen} />
+        <Stack.Screen name="Comments" component={CommentsScreen} />
         <Stack.Screen
           name="SettingScreen"
           component={SettingScreenNavigation}

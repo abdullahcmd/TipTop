@@ -8,13 +8,13 @@ import {
   ScrollView,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import ContinueButton from '../../components/button/button1';
-import LabeledPasswordInput from '../../components/TextInput/SignUpTextInput';
 import AppSafeAreaView from '../../components/General/SafeAreaView/SafeAreaView';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import LabeledPasswordInput from '../../components/General/TextInput/SignUpTextInput';
+import ContinueButton from '../../components/General/Button/button1';
 
 const BRAND_PINK = '#A03C97';
 const BG = '#EEEEEE';

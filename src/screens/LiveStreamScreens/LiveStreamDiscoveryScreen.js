@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, StyleSheet, FlatList, Platform } from 'react-native';
 
-import HeaderButtons from '../../components/LiveStreamComponents/Header';
-import StreamCard from '../../components/LiveStreamComponents/StreamCard';
-import SearchBar from '../../components/LiveStreamComponents/SearchBar';
+import HeaderButtons from '../../components/LiveStream/Header';
+import StreamCard from '../../components/LiveStream/StreamCard';
+import SearchBar from '../../components/LiveStream/SearchBar';
 import { widthPercentageToDP } from 'react-native-responsive-screen';
 import AppSafeAreaView from '../../components/General/SafeAreaView/SafeAreaView';
 import { hp, wp } from '../../utils/helpers/responsive';

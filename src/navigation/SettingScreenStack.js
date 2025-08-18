@@ -1,16 +1,16 @@
 // src/Navigation.js
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import SettingScreen from '../screens/settingScreens/settingScreen/SettingScreen';
-import AccountSettingScreen from '../screens/settingScreens/accountSettingScreen/AccountSettingScreen';
-import MyQRCode from '../screens/settingScreens/myQRCodeScreen/MyQRCode';
-import ScanQRCode from '../screens/settingScreens/scanQRCode/ScanQRCode';
-import BlockedUsersScreen from '../screens/settingScreens/blockedUsersScreen/BlockedUsers';
-import SubscriptionScreen from '../screens/settingScreens/SubscriptionScreen/SubscriptionScreen';
-import SavedPostsScreen from '../screens/settingScreens/SavedPostsScreen/SavedPostsScreen';
-import NotificationScreen from '../screens/settingScreens/Notifications_Screen/Notifications_Screen';
-import NotificationSettingsScreen from '../screens/settingScreens/Notifications_Screen/Notifications_Screen';
-import CoinWalletScreen from '../screens/settingScreens/WalletScreens/WalletScreen';
+import SettingScreen from '../screens/SettingScreens/FinalSettingScreen/SettingScreen';
+import AccountSettingScreen from '../screens/SettingScreens/AccountSettingScreen/AccountSettingScreen';
+import MyQRCode from '../screens/SettingScreens/QrCodeScreen/MyQRCode';
+import SubscriptionScreen from '../screens/SettingScreens/SubscriptionScreen/SubscriptionScreen';
+import SavedPostsScreen from '../screens/SettingScreens/SavedPostsScreen/SavedPostsScreen';
+import NotificationScreen from '../screens/SettingScreens/Notifications_Screen/Notifications_Screen';
+import NotificationSettingsScreen from '../screens/SettingScreens/Notifications_Screen/Notifications_Screen';
+import CoinWalletScreen from '../screens/SettingScreens/WalletScreens/WalletScreen';
+import BlockedUsersScreen from '../screens/SettingScreens/BlockedUsers Screen/BlockedUsersScreen';
+import ScanQRCode from '../screens/SettingScreens/QrCodeScreen/scanQRCode/ScanQRCode';
 
 const Stack = createNativeStackNavigator();
 

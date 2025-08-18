@@ -6,9 +6,9 @@ import {
   ImageBackground,
   TouchableOpacity,
 } from 'react-native';
-import RoundButton from '../../components/LiveStreamComponents/ReusableCentreIconButton';
+import RoundButton from '../../components/LiveStream/ReusableCentreIconButton';
 import Camera from '../../assets/svgs/Camera.svg';
-import ContinueButton from '../../components/button/button1';
+import ContinueButton from '../../components/General/Button/button1';
 import PrimaryColors from '../../constants/colors';
 import {
   widthPercentageToDP as wp,

@@ -10,15 +10,15 @@ import {
   Platform,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import ContinueButton from '../../components/button/button1';
-import CustomTextInput from '../../components/TextInput/CustomTextInput';
-import GoogleButton from '../../components/button/GoogleButton';
+import ContinueButton from '../../components/General/Button/button1';
+import GoogleButton from '../../components/General/Button/GoogleButton';
 import PrimaryColors from '../../constants/colors';
 import { useNavigation } from '@react-navigation/native';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import CustomTextInput from '../../components/General/TextInput/CustomTextInput';
 
 const LoginInScreen = () => {
   const navigation = useNavigation();

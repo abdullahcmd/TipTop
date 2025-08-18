@@ -8,9 +8,9 @@ import {
   ScrollView,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import ContinueButton from '../../components/button/button1';
-import UserInfoCard from '../../components/LiveStreamComponents/LiveStreamUserInfoCard';
-import SummaryRow from '../../components/LiveStreamComponents/LiveStreamSummary';
+import ContinueButton from '../../components/General/Button/button1';
+import UserInfoCard from '../../components/LiveStream/LiveStreamUserInfoCard';
+import SummaryRow from '../../components/LiveStream/LiveStreamSummary';
 import { useNavigation } from '@react-navigation/native';
 import {
   widthPercentageToDP as wp,

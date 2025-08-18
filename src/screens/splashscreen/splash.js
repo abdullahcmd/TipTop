@@ -38,7 +38,7 @@ const SplashScreen = () => {
 
     // Navigate after delay
     const timer = setTimeout(() => {
-      navigation.replace('Language_Screen');
+      navigation.replace('Home');
     }, 2000);
 
     return () => clearTimeout(timer);

@@ -3,8 +3,8 @@ import { View, Text, StyleSheet } from 'react-native';
 import AppSafeAreaView from '../../components/General/SafeAreaView/SafeAreaView';
 import Header from '../../components/General/Headers/GeneralHeader';
 import { wp } from '../../utils/helpers/responsive';
-import LabeledPasswordInput from '../../components/TextInput/SignUpTextInput';
-import GradientButton from '../../components/button/GradientButton';
+import GradientButton from '../../components/General/Button/GradientButton';
+import LabeledPasswordInput from '../../components/General/TextInput/SignUpTextInput';
 
 const ForgotPassScreen2 = () => {
   return (

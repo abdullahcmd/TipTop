@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import LanguageOption from '../../components/LanguageSelection/Language_Bar';
 import LinearGradient from 'react-native-linear-gradient';
-import ContinueButton from '../../components/button/button1';
+import ContinueButton from '../../components/General/Button/button1';
 import SelectLanguage from '../../assets/svgs/SelectLanguage.svg';
 import { useNavigation } from '@react-navigation/native';
 import {

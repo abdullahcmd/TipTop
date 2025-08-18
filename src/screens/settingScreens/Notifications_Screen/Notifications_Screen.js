@@ -5,9 +5,9 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import NotificationToggle from '../../../components/Notification_Items/Notification_item';
 import AppSafeAreaView from '../../../components/General/SafeAreaView/SafeAreaView';
 import Header from '../../../components/General/Headers/GeneralHeader';
+import NotificationToggle from '../../../components/Notifications/Notification_Items/Notification_item';
 
 const NotificationSettingsScreen = () => {
   const [toggles, setToggles] = useState({

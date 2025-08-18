@@ -8,10 +8,18 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import { useNavigation } from '@react-navigation/native';
 
-const ReelActions = ({ likes, comments, shares, profile }) => {
+const ReelActions = ({
+  likes,
+  comments,
+  shares,
+  profile,
+  onPressComments,
+  onPressShare,
+}) => {
   const [isLiked, setIsLiked] = useState(false);
-
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <TouchableOpacity>
@@ -28,11 +36,16 @@ const ReelActions = ({ likes, comments, shares, profile }) => {
         )}
         <Text style={styles.text}>{likes}K</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.iconBlock}>
+      <TouchableOpacity style={styles.iconBlock} onPress={onPressComments}>
         <Comment width={wp('7%')} height={hp('3%')} />
         <Text style={styles.text}>{comments}</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.iconBlock}>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('Feed');
+        }}
+        style={styles.iconBlock}
+      >
         <Share width={wp('7%')} height={hp('3%')} />
         <Text style={styles.text}>{shares}K</Text>
       </TouchableOpacity>

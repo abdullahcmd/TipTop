@@ -10,10 +10,10 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import RoundButton from '../../components/LiveStreamComponents/ReusableCentreIconButton';
-import LiveCommentsSection from '../../components/LiveStreamComponents/LiveCommentsSection';
-import LiveTopBar from '../../components/LiveStreamComponents/LiveTopBar';
-import LiveBottomSheet from '../../components/LiveStreamComponents/BottomSheet/BottomSheet';
+import RoundButton from '../../components/LiveStream/ReusableCentreIconButton';
+import LiveCommentsSection from '../../components/LiveStream/LiveCommentsSection';
+import LiveTopBar from '../../components/LiveStream/LiveTopBar';
+import LiveBottomSheet from '../../components/LiveStream/BottomSheet/BottomSheet';
 import VideoIcon from '../../assets/svgs/VideoIcon.svg';
 import MicrophoneIcon from '../../assets/svgs/MicrophoneIcon.svg';
 import CameraIcon from '../../assets/svgs/Camera.svg';

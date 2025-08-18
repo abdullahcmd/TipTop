@@ -4,7 +4,7 @@ import AppSafeAreaView from '../../../components/General/SafeAreaView/SafeAreaVi
 import Header from '../../../components/General/Headers/GeneralHeader';
 import { invitedUsers } from '../../../utils/DummyData/DummyData';
 import { wp } from '../../../utils/helpers/responsive';
-import BlockedUsers from '../../../components/BlockedUsersItem/BlockedUsers';
+import BlockedUsers from '../../../components/BlockedContacts/BlockedUsersItem/BlockedUsers';
 
 const BlockedUsersScreen = () => {
   return (
